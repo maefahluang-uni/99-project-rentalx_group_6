@@ -51,3 +51,8 @@ Therefore, our business platform is an innovative online platform designed to ad
 
 4. **Empower landlords**
    - Effortlessly post dormitories at no cost, enriching housing options.
+     
+## Target Audience
+
+The RentalX is designed to cater to both students seeking housing and landlords looking to showcase their properties. The platform serves as a bridge, connecting students with suitable rental options and providing landlords with a platform to reach potential tenants.
+     
