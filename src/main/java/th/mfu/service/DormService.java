@@ -5,5 +5,15 @@ import java.util.List;
 import th.mfu.model.Dorm;
 
 public interface DormService {
-    List<Dorm> getAllDorms();
+    Iterable<Dorm> getAllDorms();
+
+    List<Dorm> findByKeyword(String keyword);
+
+    List<Dorm> getDormsSortedByPriceLowToHigh();
+
+    List<Dorm> getDormsSortedByPriceHighToLow();
+
+    List<Dorm> getDormsSortedByNameAlphabetically();
+
+    Object findById(Long dormId);
 }

@@ -1,5 +1,7 @@
 package th.mfu.service.Impl;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,50 @@ public class DormServiceImpl implements DormService{
     private DormRepository dormRepository;
 
     @Override
-    public List<Dorm> getAllDorms() {
+    public Iterable<Dorm> getAllDorms() {
         return dormRepository.findAll();
+    }
+
+    @Override
+    public List<Dorm> findByKeyword(String keyword) {
+        List<Dorm> searchResults = new ArrayList<>();
+        for (Dorm dorm : dormRepository.findAll()) {
+            //you can add dorm description here
+            if (dorm.getDormName().toLowerCase().contains(keyword.toLowerCase())) {
+                searchResults.add(dorm);
+            }
+        }
+        return searchResults;
+    }
+
+    @Override
+    public List<Dorm> getDormsSortedByPriceLowToHigh() {
+        List<Dorm> sortedDorms = new ArrayList<>();
+        dormRepository.findAll().forEach(sortedDorms::add); 
+        sortedDorms.sort(Comparator.comparing(Dorm::getPrice));
+        return sortedDorms;
+    }
+
+    @Override
+    public List<Dorm> getDormsSortedByPriceHighToLow() {
+        List<Dorm> sortedDorms = new ArrayList<>();
+        dormRepository.findAll().forEach(sortedDorms::add); 
+        sortedDorms.sort(Comparator.comparing(Dorm::getPrice).reversed());
+        return sortedDorms;
+    }
+
+    @Override
+    public List<Dorm> getDormsSortedByNameAlphabetically() {
+        List<Dorm> sortedDorms = new ArrayList<>();
+        dormRepository.findAll().forEach(sortedDorms::add); 
+        sortedDorms.sort(Comparator.comparing(Dorm::getDormName));
+        return sortedDorms;
+    }
+
+    @Override
+    public Object findById(Long dormId) {
+        Dorm dorm = dormRepository.findById(dormId).get();
+        return dorm;
     }
     
 }
