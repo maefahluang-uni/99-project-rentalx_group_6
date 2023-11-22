@@ -1,10 +1,10 @@
 package th.mfu.model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Dorm {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dormId;
@@ -13,35 +13,33 @@ public class Dorm {
     private Integer price;
     private Integer bedroom;
     private Integer bathroom;
+    private String img1,img2,img3,img4;
     private String city;
     private String amenities;
     private Double latitude;
     private Double longitude;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "dorm_photos",
-            joinColumns = {
-                    @JoinColumn(name = "dorm_id")
-            },inverseJoinColumns = {
-            @JoinColumn(name = "photo_id")
-    }
-    )
-    private Set<Photo> dormPhotos;
-    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne
     private User landlord;
+
     public Dorm() {
     }
 
-    public Dorm(String dormName, String dormDesc, Integer price, Integer bedroom, Integer bathroom, String city, String amenities, Double latitude, Double longitude, Set<Photo> dormPhotos, User landlord) {
+    public Dorm(String dormName, String dormDesc, Integer price, Integer bedroom, Integer bathroom, String img1,
+            String img2, String img3, String img4, String city, String amenities, Double latitude, Double longitude,
+             User landlord) {
         this.dormName = dormName;
         this.dormDesc = dormDesc;
         this.price = price;
         this.bedroom = bedroom;
         this.bathroom = bathroom;
+        this.img1 = img1;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
         this.city = city;
         this.amenities = amenities;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.dormPhotos = dormPhotos;
         this.landlord = landlord;
     }
 
@@ -77,12 +75,36 @@ public class Dorm {
         this.price = price;
     }
 
-    public Set<Photo> getDormPhotos() {
-        return dormPhotos;
+    public String getImg1() {
+        return img1;
     }
 
-    public void setDormPhotos(Set<Photo> dormPhotos) {
-        this.dormPhotos = dormPhotos;
+    public void setImg1(String img1) {
+        this.img1 = img1;
+    }
+
+    public String getImg2() {
+        return img2;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
+
+    public String getImg3() {
+        return img3;
+    }
+
+    public void setImg3(String img3) {
+        this.img3 = img3;
+    }
+
+    public String getImg4() {
+        return img4;
+    }
+
+    public void setImg4(String img4) {
+        this.img4 = img4;
     }
 
     public User getLandlord() {

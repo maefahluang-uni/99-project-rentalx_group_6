@@ -5,4 +5,6 @@ import th.mfu.model.User;
 
 public interface UserService {
     User save (UserDto userDto);
+
+    User findByEmail(String email);
 }

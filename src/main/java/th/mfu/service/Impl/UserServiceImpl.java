@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService{
         User user = new User(userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()) , userDto.getRole(), userDto.getUserName());
         return userRepository.save(user);
     }
+
+    @Override
+    public User findByEmail(String email) {
+        User user = userRepository.findByEmail(email);
+        return  user;
+    }
 }

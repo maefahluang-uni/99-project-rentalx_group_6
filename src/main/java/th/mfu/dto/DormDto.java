@@ -1,38 +1,43 @@
 package th.mfu.dto;
 
-import th.mfu.model.Photo;
 import th.mfu.model.User;
-import java.util.Set;
-
 public class DormDto {
     private String dormName;
     private String dormDesc;
     private Integer price;
-    private Set<Photo> dormPhotos;
-    private User landlord;
     private Integer bedroom;
     private Integer bathroom;
+    private String img1,img2,img3,img4;
     private String city;
     private String amenities;
     private Double latitude;
     private Double longitude;
+    private User landlord;
+
 
     public DormDto() {
     }
 
-    public DormDto(String dormName, String dormDesc, Integer price, Set<Photo> dormPhotos, User landlord, Integer bedroom, Integer bathroom, String city, String amenities, Double latitude, Double longitude) {
+    public DormDto(String dormName, String dormDesc, Integer price, Integer bedroom, Integer bathroom, String img1,
+            String img2, String img3, String img4, String city, String amenities, Double latitude, Double longitude,
+            User landlord) {
         this.dormName = dormName;
         this.dormDesc = dormDesc;
         this.price = price;
-        this.dormPhotos = dormPhotos;
-        this.landlord = landlord;
         this.bedroom = bedroom;
         this.bathroom = bathroom;
+        this.img1 = img1;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
         this.city = city;
         this.amenities = amenities;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.landlord = landlord;
     }
+
+
 
     public String getDormName() {
         return dormName;
@@ -58,12 +63,36 @@ public class DormDto {
         this.price = price;
     }
 
-    public Set<Photo> getDormPhotos() {
-        return dormPhotos;
+    public String getImg1() {
+        return img1;
     }
 
-    public void setDormPhotos(Set<Photo> dormPhotos) {
-        this.dormPhotos = dormPhotos;
+    public void setImg1(String img1) {
+        this.img1 = img1;
+    }
+
+    public String getImg2() {
+        return img2;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
+
+    public String getImg3() {
+        return img3;
+    }
+
+    public void setImg3(String img3) {
+        this.img3 = img3;
+    }
+
+    public String getImg4() {
+        return img4;
+    }
+
+    public void setImg4(String img4) {
+        this.img4 = img4;
     }
 
     public User getLandlord() {
