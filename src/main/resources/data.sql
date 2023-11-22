@@ -3,25 +3,6 @@ INSERT INTO USER (id,email, password, role, userName) VALUES
 (2,'win@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'win_myint');
 
 
--- INSERT INTO DORM(
---     dormId, dormName, dormDesc, price, bedroom, bathroom, img1, img2, img3, img4, city, amenities, latitude, longitude, landlord_id
--- ) VALUES
--- (
---     1, 'Regent Mansion', 'This is regent Mansion', 4000, 1, 1, 'dorm1.png', 'dorm1.png', 'dorm1.png', 'dorm1.png', 'Chiang Rai', 'Aircon, hot-shower, balcony', 20.04300195098124, 99.88061252359927, 1
--- ),
--- (
---     2, 'STK Resort', 'This is regent Mansion', 4500, 1, 1, 'dorm2.jpg', 'dorm2.jpg', 'dorm2.jpg', 'dorm2.jpg', 'Chiang Rai', 'Aircon', 20.044534713021523, 99.87971923709337,  1
--- ),
--- (
---     3, 'Regent Mansion', 'This is regent Mansion', 4000, 1, 1, 'dorm3.jpg', 'dorm3.jpg', 'dorm3.jpg', 'dorm3.jpg', 'Chiang Rai', 'Aircon, hot-shower, balcony', 20.04300195098124, 99.88061252359927,  1
--- ),
--- (
---     4, 'Regent Mansion', 'This is regent Mansion', 4000, 1, 1, 'dorm4.jpg', 'dorm4.jpg', 'dorm4.jpg', 'dorm4.jpg', 'Chiang Rai', 'Aircon, hot-shower, balcony', 20.04300195098124, 99.88061252359927,  1
--- ),
--- (
---     5, 'Regent Mansion', 'This is regent Mansion', 4000, 1, 1, 'dorm5.jpg', 'dorm5.jpg', 'dorm5.jpg', 'dorm5.jpg', 'Chiang Rai', 'Aircon, hot-shower, balcony', 20.04300195098124, 99.88061252359927,  1
--- );
-
 INSERT INTO DORM(dormID,dormName,dormDesc, price, bedroom , bathroom , img1 , img2, img3 , img4 , city ,amenities , latitude, longitude , landlord_id)VALUES
 ( 1, 'Regent Mansion', 'There are 16 buildings, 796 rooms, 2 types of rooms : single bed rooms and twin bed rooms. (28 sq m.)
 ', 4000 ,2, 1 , 'regent1.jpg' , 'regent2.jpg' , 'regent3.jpg' , 'regent4.jpg', 'Mueang Chiang Rai' , 
@@ -54,3 +35,8 @@ INSERT INTO DORM(dormID,dormName,dormDesc, price, bedroom , bathroom , img1 , im
 ( 10, 'SJD MANSION 2', ' 2 bedrooms with clean and good service and fair price.', 4000 ,1, 1 , 
 'sjd1.png' , 'sjd2.png' , 'sjd3.png' , 'sjd4.png', 'Mueang Chiang Rai' , 
 '7-11,Security,Parking Space,free wifi,Restaurants',20.04712124039462, 99.88014903995992, 1);
+
+
+INSERT INTO WISHLIST(id,user_id,dorm_id) VALUES
+(1,2,1),
+(2,2,3);
