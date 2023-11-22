@@ -1,7 +1,6 @@
 package th.mfu.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
