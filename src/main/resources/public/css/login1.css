@@ -138,7 +138,9 @@ h2 {
 .input-box label {
     width: 100px;
     margin: 0 10px;
-    
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
 }
 .wrapper .btn {
     width: 50%;
@@ -176,7 +178,10 @@ hr {
     margin-bottom: 15px;
     outline: none;
   }
-  .wrapper .create {
+.input-box-create a {
+    text-decoration: none;
+}
+.input-box-create .create {
     width: 50%;
     height: 45px;
     background: #202A44;
