@@ -9,4 +9,8 @@ public interface UserService {
     User findByEmail(String email);
 
     User updateUserInfo(User currentUser, UserDto updateUser);
+
+    boolean checkPassword(User currentUser, String currentPassword);
+
+    boolean updatePassword(User currentUser, String currentPassword, String newPassword);
 }

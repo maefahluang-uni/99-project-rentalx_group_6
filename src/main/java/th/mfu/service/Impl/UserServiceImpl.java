@@ -1,6 +1,7 @@
 package th.mfu.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import th.mfu.dto.UserDto;
@@ -12,6 +13,8 @@ import th.mfu.service.UserService;
 public class UserServiceImpl implements UserService{
     private Long userId = 7L;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository userRepository;
 
@@ -40,5 +43,17 @@ public class UserServiceImpl implements UserService{
             
         }
         return currentUser;
+    }
+
+    @Override
+    public boolean checkPassword(User currentUser, String currentPassword) {
+        return passwordEncoder.matches(currentPassword, currentUser.getPassword());
+    }
+
+    @Override
+    public boolean updatePassword(User currentUser, String currentPassword, String newPassword) {
+        int rowsAffected = userRepository.updatePassword(currentUser.getId(), passwordEncoder.encode(currentPassword), passwordEncoder.encode(newPassword));
+        currentUser.setPassword(passwordEncoder.encode(newPassword));
+        return rowsAffected > 0;
     }
 }

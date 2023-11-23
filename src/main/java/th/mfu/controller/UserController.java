@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import th.mfu.dto.PasswordDto;
 import th.mfu.dto.UserDto;
 import th.mfu.model.User;
 import th.mfu.repository.UserRepository;
@@ -127,5 +128,50 @@ public class UserController {
         User currentUser = userService.findByEmail(email);
         userService.updateUserInfo(currentUser,updateUser);
         return "redirect:/update-profile";
+    }
+
+
+    @GetMapping("/change-password")
+    public String changePassword(Model model){
+        model.addAttribute("passwordDto",new PasswordDto());
+        return "update-password";
+    }
+    @Transactional
+    @PostMapping("/change-password")
+    public String savePassword(@AuthenticationPrincipal UserDetails userDetails,
+                               @ModelAttribute("passwordDto") PasswordDto passwordDto,
+                               Model model){
+        System.out.println("---------------------------------------------------------------");
+        System.out.println(passwordDto.getCurrentPassword());
+        System.out.println(passwordDto.getNewPassword());
+        System.out.println(passwordDto.getConfirmPassword());
+        System.out.println("---------------------------------------------------------------");
+
+        String email = userDetails.getUsername();
+        User currentUser = userService.findByEmail(email);
+        if(passwordDto.getNewPassword().equals(passwordDto.getConfirmPassword())){
+            System.out.println("passwordDto.getNewPassword().equals(passwordDto.getConfirmPassword()) = "+
+                    passwordDto.getNewPassword().equals(passwordDto.getConfirmPassword()));
+            System.out.println("currentPassword from Authentication " + currentUser.getPassword());
+            System.out.println("currentPassword from Authentication " + passwordEncoder.encode(passwordDto.getCurrentPassword()));
+            if(userService.checkPassword(currentUser,passwordDto.getCurrentPassword())){
+
+                System.out.println("userService.checkPassword(currentUser,passwordDto.getCurrentPassword()) = "+
+                        userService.checkPassword(currentUser,passwordDto.getCurrentPassword()));
+                if (userService.updatePassword(currentUser,
+                        passwordDto.getCurrentPassword(),
+                        passwordDto.getNewPassword())){
+                    model.addAttribute("successMessage", "Password updated successfully.");
+                }
+            }else{
+                System.out.println("this is else ");
+                //error message if current password is incorrect!
+                model.addAttribute("errorMessage", "Current password is incorrect.");
+            }
+        }else{
+            //error message if retyping password is incorrect!
+            model.addAttribute("errorMessage", "Please type the same password with new password");
+        }
+        return "redirect:/change-password";
     }
 }
