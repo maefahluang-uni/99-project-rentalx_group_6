@@ -12,13 +12,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Review {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long reviewId;
     @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "dormId", referencedColumnName = "dormId")
+    @JoinColumn(name = "dorm_id", referencedColumnName = "dormId")
     private Dorm dorm;
     private int rating;
     private String reviewFromUser;
@@ -27,19 +26,16 @@ public class Review {
     public Review() {
     }
    
-
     
 
-
-    public Review(User user, Dorm dorm, int rating, String reviewFromUser, LocalDateTime timestamp) {
+    public Review(Long reviewId, User user, Dorm dorm, int rating, String reviewFromUser, LocalDateTime timestamp) {
+        this.reviewId = reviewId;
         this.user = user;
         this.dorm = dorm;
         this.rating = rating;
         this.reviewFromUser = reviewFromUser;
         this.timestamp = timestamp;
     }
-
-
 
 
 

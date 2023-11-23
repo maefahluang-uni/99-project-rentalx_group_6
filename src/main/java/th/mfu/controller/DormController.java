@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import th.mfu.dto.ReviewDto;
 import th.mfu.model.Dorm;
 import th.mfu.service.DormService;
+import th.mfu.service.ReviewService;
 import th.mfu.service.UserService;
 import java.util.List;
 @Controller
@@ -23,6 +24,9 @@ public class DormController {
 
     @Autowired
     private DormService dormService;
+
+    @Autowired
+    private ReviewService reviewService;
 
     @GetMapping("/dorms")
     public String dormList(Model model,@AuthenticationPrincipal UserDetails userDetails){
@@ -69,7 +73,7 @@ public class DormController {
         model.addAttribute("user",userService.findByEmail(email));
         model.addAttribute("dorm",dormService.findById(dormId));
         model.addAttribute("review",new ReviewDto());
-        // model.addAttribute("reviewsInRepo",reviewService.findByDormId(dormId));
+        model.addAttribute("reviewsInRepo",reviewService.findByDormId(dormId));
         return "show-each-dorm";
     }
 

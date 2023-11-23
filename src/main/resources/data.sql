@@ -1,6 +1,10 @@
 INSERT INTO USER (id,email, password, role, userName) VALUES
 (1,'zarn@gmail.com', '$2a$10$fy7b2TMtprXpV5MJ.4izCu5/8.Mw14xqLIZ/hB2uYx3BmJe.h04wK', 'LANDLORD', 'zarn_holland'),
-(2,'win@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'win_myint');
+(2,'nay@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'Nay Ye Lin'),
+(3,'phyo@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'Phyo Than Htike'),
+(4,'myat@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'myat thu kyaw'),
+(5,'min@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'min thuta'),
+(6,'win@gmail.com', '$2a$10$4rnxx/evww3ENLGqK.XUOO2W19Im/I.a2sRclv2qgFY9lHjNDwK9G', 'USER', 'win myint kyaw');
 
 
 INSERT INTO DORM(dormID,dormName,dormDesc, price, bedroom , bathroom , img1 , img2, img3 , img4 , city ,amenities , latitude, longitude , landlord_id)VALUES
@@ -40,3 +44,15 @@ INSERT INTO DORM(dormID,dormName,dormDesc, price, bedroom , bathroom , img1 , im
 INSERT INTO WISHLIST(id,user_id,dorm_id) VALUES
 (1,2,1),
 (2,2,3);
+
+INSERT INTO REVIEW(reviewId, user_id, dorm_id, rating, reviewFromUser, timestamp) VALUES
+(1, 4, 1, 4, 'nice dorm', '2023-11-19 22:22:02.583902'),
+(2, 2, 3, 5, 'amazing place!', '2023-11-20 12:45:30.123456'),
+(3, 6, 2, 3, 'could be better', '2023-11-21 08:15:10.987654'),
+(4, 3, 1, 4, 'comfortable stay', '2023-11-22 16:30:45.111222'),
+(5, 2, 3, 5, 'highly recommend', '2023-11-23 09:05:55.666888'),
+(6, 3, 2, 4, 'pleasant experience', '2023-11-24 14:20:33.444555'),
+(7, 2, 1, 3, 'average accommodation', '2023-11-25 18:40:20.987654'),
+(8, 2, 2, 5, 'excellent service!', '2023-11-26 07:12:11.223344'),
+(9, 3, 3, 4, 'good value for money', '2023-11-27 23:55:40.555666'),
+(10, 5, 2, 4, 'clean and tidy', '2023-11-28 15:30:22.888999');
