@@ -59,7 +59,7 @@ public class DormServiceImpl implements DormService{
     }
 
     @Override
-    public Object findById(Long dormId) {
+    public Dorm findById(Long dormId) {
         Dorm dorm = dormRepository.findById(dormId).get();
         return dorm;
     }

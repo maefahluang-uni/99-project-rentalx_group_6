@@ -15,5 +15,5 @@ public interface DormService {
 
     List<Dorm> getDormsSortedByNameAlphabetically();
 
-    Object findById(Long dormId);
+    Dorm findById(Long dormId);
 }

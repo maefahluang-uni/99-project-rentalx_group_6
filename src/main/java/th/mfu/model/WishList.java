@@ -10,7 +10,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class WishList {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private User user;
