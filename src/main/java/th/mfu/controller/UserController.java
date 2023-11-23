@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,7 +30,7 @@ public class UserController {
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
 
-        return "register-form";
+        return "signup";
     }
 
     @PostMapping("/registration")
@@ -59,7 +58,7 @@ public class UserController {
             userService.save(userDto);
             return "redirect:/login";
         }else{
-            return "redirect:/registration";
+            return "redirect:/signup";
         }
         // model.addAttribute("message", "Registered Successfully!");
         
@@ -67,7 +66,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String login() {
-        return "login-form";
+        return "login";
     }
 
     @GetMapping("user-page")

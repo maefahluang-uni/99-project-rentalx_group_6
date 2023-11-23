@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentalX</title>
+    <link rel="stylesheet" th:href="@{../css/login1.css}">
+    
+    <link rel="stylesheet"
+     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" class="logotag"><h3><i class='bx bxs-building'></i>Rental<span>X</span></h3></a>
+        </div>
+        <nav class="navigation">
+            <a th:href="@{/registration}">Sign up</a>
+            <a th:href="@{/login}">Sign in</a>
+            <a href="#">Contact us</a>
+        </nav>
+    </header>
+        
+        <div class="headings">
+        <h1>Thailand's Best House Rental Platform</h1>
+        <h2>Find, Rent and Thrive</h2>
+        </div>
+        <div class="wrapper">
+
+        <div class="message" th:if="${param.error}">
+            Invalid Username or Password
+        </div>
+        <div class="message" th:if="${param.logout}">
+            Logout Successfuly
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <h1>Login or Sign up</h1>
+            <div class="input-box">
+                <label for="username">Email:</label>
+                <input type="email" name="username" id="username" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Password*" required>
+            </div>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="forgot">
+                <a th:href="@{/password-request}">Forgot password?</a>
+            </div>
+            <hr>
+            <div class="input-box">
+                <a th:href="@{/registration}">
+                    <button type="submit" class="create">Create new account</button>
+                </a>
+            </div>
+        </form>
+        </div>
+        
+        <section class="footer">
+            <div class="footer-content">
+                <li><a href="#"><i class='bx bxl-facebook-circle'></i>fb.com/rentalx.co.th</a></li>
+                <li><a href="#"><i class='bx bxl-whatsapp'></i></i>+66 95 534 4442</a></li>
+            </div>
+            <div class="footer-content">
+                
+                <li><a href="#"><i class='bx bxl-telegram' style='color:#ffffff'  ></i>+66 95 534 4442</a></li>
+                <a href="#"></a>
+                <li><a href="#">contact@rentalx.co.th</a></li>
+            </div>
+            <div class="footer-content-us">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </div>
+        </section>
+</body>
+</html>
