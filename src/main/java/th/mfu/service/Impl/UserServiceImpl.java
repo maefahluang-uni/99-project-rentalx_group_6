@@ -27,4 +27,18 @@ public class UserServiceImpl implements UserService{
         User user = userRepository.findByEmail(email);
         return  user;
     }
+
+    @Override
+    public User updateUserInfo(User currentUser, UserDto updateUser) {
+        if(updateUser.getUserName() != null){
+            int roleaffected = userRepository.updateUserName(currentUser.getId(), updateUser.getUserName());
+            if(roleaffected > 0){
+                currentUser.setUserName(updateUser.getUserName());
+            }else{
+                System.out.println("error");
+            }
+            
+        }
+        return currentUser;
+    }
 }

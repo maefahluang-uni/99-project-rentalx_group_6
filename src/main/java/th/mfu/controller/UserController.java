@@ -2,6 +2,8 @@ package th.mfu.controller;
 
 import java.security.Principal;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -43,34 +46,34 @@ public class UserController {
     @RequestParam String password,
     @RequestParam String role) {
         
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println(email);
-        System.out.println(userName);
-        System.out.println(password);
-        System.out.println(role);
-        System.out.println("--------------------------------------------------------------------");
+        // System.out.println("--------------------------------------------------------------------");
+        // System.out.println(email);
+        // System.out.println(userName);
+        // System.out.println(password);
+        // System.out.println(role);
+        // System.out.println("--------------------------------------------------------------------");
        
         if(userRepository.findByEmail(email) == null){
             // userRepository.save(new User(email,password,role,userName));
-            System.out.println("--------------------------------------------------------------------");
-            System.out.println(email);
-            System.out.println(userName);
-            System.out.println(password);
-            System.out.println(role);
-            System.out.println("--------------------------------------------------------------------");
+            // System.out.println("--------------------------------------------------------------------");
+            // System.out.println(email);
+            // System.out.println(userName);
+            // System.out.println(password);
+            // System.out.println(role);
+            // System.out.println("--------------------------------------------------------------------");
             UserDto userDto = new UserDto();
             userDto.setUserName(userName);
             userDto.setEmail(email);
             userDto.setRole(role);
             userDto.setPassword(passwordEncoder.encode(password));
             userService.save(userDto);
-             System.out.println("--------------------------------------------------------------------");
-            User user = userService.findByEmail(email);
-            System.out.println(user.getEmail());
-            System.out.println(user.getPassword());
-            System.out.println(user.getRole());
-            System.out.println(user.getUserName());
-            System.out.println("--------------------------------------------------------------------");
+            // System.out.println("--------------------------------------------------------------------");
+            // User user = userService.findByEmail(email);
+            // System.out.println(user.getEmail());
+            // System.out.println(user.getPassword());
+            // System.out.println(user.getRole());
+            // System.out.println(user.getUserName());
+            // System.out.println("--------------------------------------------------------------------");
 
             return "redirect:/login";
         }else{
@@ -105,5 +108,24 @@ public class UserController {
         User user = userService.findByEmail(email);
         model.addAttribute("user",user);
         return "profile";
+    }
+
+    @GetMapping("/update-profile")
+    public String editNyl(Model model,@AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User user = userService.findByEmail(email);
+        model.addAttribute("user",user);
+        model.addAttribute("updateUser",new UserDto());
+        return "update-profile";
+    }
+
+    @Transactional
+    @PostMapping("/update-profile")
+    public String saveProfile(@AuthenticationPrincipal UserDetails userDetails,
+                              @ModelAttribute("updateUser") UserDto updateUser){
+        String email = userDetails.getUsername();
+        User currentUser = userService.findByEmail(email);
+        userService.updateUserInfo(currentUser,updateUser);
+        return "redirect:/update-profile";
     }
 }
