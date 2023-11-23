@@ -17,6 +17,7 @@ public class SecurityConfig {
     CustomSuccessHandler customSuccessHandler;
     @Autowired
     CustomUserDetailsService customUserDetailsService;
+    
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
@@ -48,14 +52,26 @@ public class UserController {
        
         if(userRepository.findByEmail(email) == null){
             // userRepository.save(new User(email,password,role,userName));
-             System.out.println("--------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------");
             System.out.println(email);
             System.out.println(userName);
             System.out.println(password);
             System.out.println(role);
             System.out.println("--------------------------------------------------------------------");
-             UserDto userDto = new UserDto(userName,email,password,role);
+            UserDto userDto = new UserDto();
+            userDto.setUserName(userName);
+            userDto.setEmail(email);
+            userDto.setRole(role);
+            userDto.setPassword(passwordEncoder.encode(password));
             userService.save(userDto);
+             System.out.println("--------------------------------------------------------------------");
+            User user = userService.findByEmail(email);
+            System.out.println(user.getEmail());
+            System.out.println(user.getPassword());
+            System.out.println(user.getRole());
+            System.out.println(user.getUserName());
+            System.out.println("--------------------------------------------------------------------");
+
             return "redirect:/login";
         }else{
             return "redirect:/signup";
