@@ -17,7 +17,9 @@
 .email1{
     width: 170px;
 }
-
+.Uname{
+    margin-left: 40px;
+}
 .infobutt{
     display: flex;
     align-items: center;

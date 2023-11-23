@@ -13,16 +13,22 @@
 <body>
 
 <nav class="navbar">
-    <div class="logo">
-        <h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3>
-    </div>
+    <a th:href="@{/dorms}" class="logo1">
+        <div class="logo3">
+          
+            <h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3>
+        
+        </div>
+      </a>
     <div class="menu-toggle">
         <i class="fa-solid fa-bars"></i>
     </div>
     <div class="nav">
-        <div class="user-button">
-            <button>Ethan</button>
-        </div>
+        <a th:href="@{/profile}">
+            <div class="user-button">
+              <button><span th:text="${user.userName}"></span></button>
+            </div>
+          </a>
         <div class="menu">
             <ul>
                 <button class="btn6"> Contact Us</button>
@@ -34,14 +40,17 @@
 
 <div class="photo-container">
     <div class="photo1">
-        <img class="photohalf" th:src="@{'src/main/resources/static/images/'+${dorm.img1}}" alt="Photo 1">
+        <img class="photohalf" th:src="@{/images/{imageName}(imageName=${dorm.img1})}" alt="Product Image">
     </div>
     <div class="photo2">
         <div class="ph2container">
-        <img class="photoquarter" th:src="@{'src/main/resources/static/images/'+${dorm.img2}}" alt="Photo 2">
+        <!-- <img class="photoquarter" th:src="@{'src/main/resources/static/images/'+${dorm.img2}}" alt="Photo 2">
         <img class="photoquarter" th:src="@{'src/main/resources/static/images/'+${dorm.img2}}" alt="Photo 3">
-        <img class="photoquarter" th:src="@{'src/main/resources/static/images/'+${dorm.img3}}" alt="Photo 4">
-        <div id="map" style="height: 200px; width: 425px;"></div>
+        <img class="photoquarter" th:src="@{'src/main/resources/static/images/'+${dorm.img3}}" alt="Photo 4"> -->
+        <img class="photoquarter" th:src="@{/images/{imageName}(imageName=${dorm.img2})}" alt="Product Image">
+        <img class="photoquarter" th:src="@{/images/{imageName}(imageName=${dorm.img3})}" alt="Product Image">
+        <img class="photoquarter" th:src="@{/images/{imageName}(imageName=${dorm.img4})}" alt="Product Image">
+        <div id="map" style="height: 200px; width: 330px;"></div>
         </div>
     </div>
 </div>

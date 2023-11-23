@@ -16,17 +16,20 @@ body {
     display: flex;
     justify-content: space-evenly;
 }
-.logo {
-    margin-left: 80px;
+.logo3{
+    color: WHITE;
     background-color: black;
-    padding: 0px 20px;
+    width: 130px;
+    padding: 1px 1px;
     border-radius: 5px;
     font-size: 13px;
+    text-align: center;
+    margin-left: 80px;
+}
+.logo3 span{
+    color: yellow;
 }
 
-.logo span {
-    color: rgb(255, 170, 0);
-}
 
 .menu-toggle {
     display: none;
@@ -168,7 +171,7 @@ input[type="text"] {
     margin-right: 120px;
 }
 #sortForm{
-    margin-right:740px;
+    margin-right:420px;
 }
 
 .sort {
@@ -309,6 +312,7 @@ input[type="text"] {
     margin-top: 10px;
 }
 .btns{
+    align-items: center;
     display: flex;
     justify-content: space-between;
 }

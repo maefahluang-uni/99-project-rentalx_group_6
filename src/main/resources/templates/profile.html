@@ -6,15 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" th:href="@{../css/list.css}">
-    <link rel="stylesheet" th:href="@{../css/user-profile.css}">
+    <link rel="stylesheet" th:href="@{../css/profile.css}">
 </head>
 <body>
 <nav class="navbar">
-    <div class="logo">
-        <a th:href="@{/dorms}">
+    <a th:href="@{/dorms}" class="logo1">
+        <div class="logo3">
+          
             <h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3>
-        </a>
-    </div>
+        
+        </div>
+      </a>
     <div class="menu-toggle">
         <i class="fa-solid fa-bars"></i>
     </div>
@@ -35,7 +37,7 @@
 <div  class="userphoto">
     <div class="username">
         <img class="userimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOiYElieWi3Z9s0BBnHMlPIbLM2Yfs3iLnw&usqp=CAU" alt="">
-        <h1 th:text="${user.userName}"></h1>
+        <h1 class="Uname" th:text="${user.userName}"></h1>
     </div>
     <a th:href="@{/dormms}">
         <button class="properties">Explore properties</button>
@@ -43,12 +45,14 @@
 </div>
 <div class="butts">
     <h1>Profile Info</h1>
+    <div>
     <a th:href="@{/wishlists}">
         <button class="btn5"><i class="fa-regular fa-heart"></i> Wishlist</button>
     </a>
     <a th:href="@{/show-map}">
         <button class="btn6"><i class="fa-solid fa-location-dot"></i> Map</button>
     </a>
+    </div>
 </div>
 
 <div class="userinfo">

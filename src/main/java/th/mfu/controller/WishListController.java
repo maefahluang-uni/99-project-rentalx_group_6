@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import th.mfu.model.User;
-import th.mfu.model.WishList;
 import th.mfu.service.UserService;
 import th.mfu.service.WishListService;
 
@@ -29,6 +28,7 @@ public class WishListController {
         System.out.println(userId);
         
         model.addAttribute("wishlists",wishListService.findByUserId(userId));
+        model.addAttribute("user", user);
         return "wishlist";
     }
 }
