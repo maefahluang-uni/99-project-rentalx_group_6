@@ -6,14 +6,20 @@ import javax.persistence.*;
 public class Dorm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dormId;
     private String dormName;
     private String dormDesc;
     private Integer price;
     private Integer bedroom;
     private Integer bathroom;
-    private String img1,img2,img3,img4;
+    @Column(length = 1000)
+    private String img1;
+    @Column(length = 1000)
+    private String img2;
+    @Column(length = 1000)
+    private String img3;
+    @Column(length = 1000)
+    private String img4;
     private String city;
     private String amenities;
     private Double latitude;
@@ -24,9 +30,10 @@ public class Dorm {
     public Dorm() {
     }
 
-    public Dorm(String dormName, String dormDesc, Integer price, Integer bedroom, Integer bathroom, String img1,
-            String img2, String img3, String img4, String city, String amenities, Double latitude, Double longitude,
-             User landlord) {
+    public Dorm(Long dormId, String dormName, String dormDesc, Integer price, Integer bedroom, Integer bathroom,
+            String img1, String img2, String img3, String img4, String city, String amenities, Double latitude,
+            Double longitude, User landlord) {
+        this.dormId = dormId;
         this.dormName = dormName;
         this.dormDesc = dormDesc;
         this.price = price;
@@ -42,6 +49,8 @@ public class Dorm {
         this.longitude = longitude;
         this.landlord = landlord;
     }
+
+
 
     public Long getDormId() {
         return dormId;

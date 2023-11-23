@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Dorm Form</title>
+</head>
+<body>
+<h1>This is dorm create Form!</h1>
+<div align="center">
+    <h1>User Registration</h1>
+    <form th:action="@{/create-dorm}" method="POST" th:object="${dorm}" enctype="multipart/form-data">
+        <label>Name:</label>
+        <input type="text" th:field="*{dormName}" /><br/>
+
+
+        <label>Desc:</label>
+        <input type="text" th:field="*{dormDesc}" /><br/>
+
+        <label>Price:</label>
+        <input type="number" th:field="*{price}" /><br/>
+
+        <label>Image1: </label>
+        <input type="text" th:field="*{img1}" /><br/>
+
+        <label>Image2: </label>
+        <input type="text" th:field="*{img2}" /><br/>
+
+        <label>Image3:</label>
+        <input type="text" th:field="*{img3}" /><br/>
+
+        <label>Imgae4:</label>
+        <input type="text" th:field="*{img4}" /><br/>
+
+        <label>Bedroom:</label>
+        <input type="number" th:field="*{bedroom}" /><br/>
+
+
+        <label>Bathroom:</label>
+        <input type="number" th:field="*{bathroom}" /><br/>
+
+        <label>City:</label>
+        <input type="text" th:field="*{city}" /><br/>
+
+        <label>Amenities:</label>
+        <input type="text" th:field="*{amenities}" /><br/>
+
+        <label>Latitude:</label>
+        <input type="text" th:field="*{latitude}" /><br/>
+
+        <label>Longitude:</label>
+        <input type="text" th:field="*{longitude}" /><br/>
+
+
+        <button type="submit">Submit</button>
+
+        <a href="/landlord-dorms">Back to dorms</a>
+
+    </form>
+</div>
+</body>
+</html>

@@ -7,12 +7,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import th.mfu.dto.DormDto;
 import th.mfu.model.Dorm;
 import th.mfu.repository.DormRepository;
 import th.mfu.service.DormService;
 
 @Service
 public class DormServiceImpl implements DormService{
+
+    private Long dormId = 11L;
 
     @Autowired
     private DormRepository dormRepository;
@@ -62,6 +65,20 @@ public class DormServiceImpl implements DormService{
     public Dorm findById(Long dormId) {
         Dorm dorm = dormRepository.findById(dormId).get();
         return dorm;
+    }
+
+    @Override
+    public List<Dorm> findDormByLandlordId(Long landlordId) {
+        return dormRepository.findDormsByLandlordId(landlordId);
+    }
+
+    @Override
+    public Dorm save(DormDto dormDto) {
+        Dorm dorm = new Dorm(dormId,dormDto.getDormName(),dormDto.getDormDesc(),dormDto.getPrice(),dormDto.getBedroom(),dormDto.getBathroom(),
+                    dormDto.getImg1(),dormDto.getImg2(),dormDto.getImg3(),dormDto.getImg4(),dormDto.getCity(),dormDto.getAmenities(),
+                    dormDto.getLatitude(),dormDto.getLongitude(),dormDto.getLandlord());
+        dormId++;
+        return dormRepository.save(dorm);
     }
     
 }

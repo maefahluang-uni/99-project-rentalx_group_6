@@ -6,15 +6,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
+import th.mfu.dto.DormDto;
 import th.mfu.dto.ReviewDto;
 import th.mfu.model.Dorm;
+import th.mfu.model.User;
 import th.mfu.service.DormService;
 import th.mfu.service.ReviewService;
 import th.mfu.service.UserService;
+
+import java.io.IOException;
 import java.util.List;
 @Controller
 public class DormController {
@@ -81,5 +88,32 @@ public class DormController {
     public String showMap(Model model){
         model.addAttribute("dorms",dormService.getAllDorms());
         return "show-map";
+    }
+
+    @GetMapping("/landlord-dorms")
+    public String showLandlordDorms(Model model,@AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User landlord = userService.findByEmail(email);
+        Long landlordId = landlord.getId();
+        model.addAttribute("dorms",dormService.findDormByLandlordId(landlordId));
+        model.addAttribute("landlord", landlord);
+        return "landlord-dorms";
+    }
+
+    @GetMapping("/create-dorm")
+    public String showCreateDormForm(Model model){
+        model.addAttribute("dorm",new DormDto());
+        return "create-dorm";
+    }
+    @PostMapping("/create-dorm")
+    public String submitDorm(@ModelAttribute("dorm") DormDto dormDto,
+                             @AuthenticationPrincipal UserDetails userDetails){
+        
+        String email = userDetails.getUsername();
+        dormDto.setLandlord(userService.findByEmail(email));
+        dormService.save(dormDto);
+
+        return "redirect:/landlord-dorms";
+        
     }
 }

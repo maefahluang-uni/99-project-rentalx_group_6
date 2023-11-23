@@ -46,7 +46,7 @@
     <div class="container">
         <h2>Welcome, [[${user.getUserName()}]]</h2>
         <a th:href="@{/create-dorm}">Create Dorm Post</a>
-        <a th:href="@{/show-landlord-dorms}">See My Dorms</a>
+        <a th:href="@{/landlord-dorms}">See My Dorms</a>
         <span sec:authorize="isAuthenticated">
         <a th:href="@{/logout}">
          Logout

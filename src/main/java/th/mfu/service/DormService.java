@@ -2,6 +2,7 @@ package th.mfu.service;
 
 import java.util.List;
 
+import th.mfu.dto.DormDto;
 import th.mfu.model.Dorm;
 
 public interface DormService {
@@ -16,4 +17,8 @@ public interface DormService {
     List<Dorm> getDormsSortedByNameAlphabetically();
 
     Dorm findById(Long dormId);
+
+    List<Dorm> findDormByLandlordId(Long landlordId);
+
+    Dorm save(DormDto dormDto);
 }
