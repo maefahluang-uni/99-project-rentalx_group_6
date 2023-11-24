@@ -1,7 +1,9 @@
 package th.mfu.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 
+import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import th.mfu.dto.ContactUsDto;
 import th.mfu.dto.PasswordDto;
 import th.mfu.dto.UserDto;
 import th.mfu.model.User;
@@ -173,5 +176,25 @@ public class UserController {
             model.addAttribute("errorMessage", "Please type the same password with new password");
         }
         return "redirect:/change-password";
+    }
+
+    @GetMapping("/contactus")
+    public String contactUs(Model model){
+        model.addAttribute("contactus", new ContactUsDto());
+        return "contact-us";
+    }
+
+    @PostMapping("/contactus")
+    public String MailToTeam(@ModelAttribute("contactus") ContactUsDto contactUsDto){
+        try {
+            userService.sentToMail(contactUsDto);
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "contact-us";
     }
 }

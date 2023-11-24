@@ -1,9 +1,17 @@
 package th.mfu.service.Impl;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import th.mfu.dto.ContactUsDto;
 import th.mfu.dto.UserDto;
 import th.mfu.model.User;
 import th.mfu.repository.UserRepository;
@@ -17,6 +25,8 @@ public class UserServiceImpl implements UserService{
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    JavaMailSender javaMailSender;
 
     @Override
     public User save(UserDto userDto) {
@@ -55,5 +65,22 @@ public class UserServiceImpl implements UserService{
         int rowsAffected = userRepository.updatePassword(currentUser.getId(), passwordEncoder.encode(currentPassword), passwordEncoder.encode(newPassword));
         currentUser.setPassword(passwordEncoder.encode(newPassword));
         return rowsAffected > 0;
+    }
+
+    @Override
+    public void sentToMail(ContactUsDto contactUsDto) throws MessagingException, UnsupportedEncodingException {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        String emailContent = "<p>Hello</p>"
+        + "The customer "+contactUsDto.getName() + "sent need to you!"
+        + "<p> "+ contactUsDto.getMessage()+"</p>"
+        + "<p> "+ contactUsDto.getEmail()+"</p>"
+        + "<p> "+ contactUsDto.getPhNum()+"</p>"
+        + "<br>";
+        helper.setText(emailContent, true);
+        helper.setFrom("zarnn872@gmail.com", "RentalX Contact Us Service");
+        helper.setSubject("Message from User");
+        helper.setTo("6531503195@lamduan.mfu.ac.th");
+        javaMailSender.send(message);
     }
 }

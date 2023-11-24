@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentalX</title>
-    <link rel="stylesheet" th:href="@{../css/signupx.css}">
+    <link rel="stylesheet" th:href="@{../css/contactus.css}">
     <link rel="stylesheet"
      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
 </head>
 <body>
     <header>
@@ -16,7 +15,7 @@
         </div>
         <nav class="navigation">
             <a th:href="@{/registration}">Sign up</a>
-            <a href="@{/login}">Sign in</a>
+            <a th:href="@{/login}">Sign in</a>
             <a th:href="@{/contactus}">Contact us</a>
         </nav>
     </header>
@@ -26,34 +25,22 @@
     </div>
     <div class="wrapper">
         
-        <form action="/registration" method="post" role="form">
+        <form th:action="@{\contactus}" method="post" th:object="${contactus}">
             <div class="input-box">
-                <label for="">Name</label>
-                <input type="text" name="userName" placeholder="Name*" required>
-            </div>
-            <div class="input-box">
-                <label for="">Email</label>
-                <input type="email" name="email" placeholder="Email*" required>
+                <input type="text" th:field="*{name}" placeholder="Name*" required>
             </div>
             <div class="input-box">
-                <label for="">Create Password</label>
-                <input type="password" name="password" placeholder="Create Password*" required>
+                <input type="email" th:field="*{email}" placeholder="Email*" required>
             </div>
             <div class="input-box">
-                <label for="">Confirm Password</label>
-                <input type="password" placeholder="Confirm Password*" required>
+                
+                <input type="number" th:field="*{phNum}" placeholder="Phone number*" required>
             </div>
-            <div class="rdbut">
-                <label>
-                    <input type="radio" name="role" value="LANDLORD" />
-                    <span>Landlord</span>
-                </label>
-                <label>
-                    <input type="radio" name="role" value="USER" />
-                    <span>User</span>
-                </label>
+            <div class="input-box">
+                <input type="text" th:field="*{message}" placeholder="How Can we help you?*" required>
             </div>
-            <button type="submit" class="create">Create new account</button>
+            
+            <button type="submit" class="create">Proceed</button>
             
         </form>
     </div>

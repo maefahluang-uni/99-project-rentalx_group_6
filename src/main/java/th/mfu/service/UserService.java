@@ -1,5 +1,10 @@
 package th.mfu.service;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
+
+import th.mfu.dto.ContactUsDto;
 import th.mfu.dto.UserDto;
 import th.mfu.model.User;
 
@@ -13,4 +18,6 @@ public interface UserService {
     boolean checkPassword(User currentUser, String currentPassword);
 
     boolean updatePassword(User currentUser, String currentPassword, String newPassword);
+
+    void sentToMail(ContactUsDto contactUsDto) throws MessagingException, UnsupportedEncodingException;
 }

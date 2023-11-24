@@ -8,7 +8,7 @@
 <h1>This is dorm create Form!</h1>
 <div align="center">
     <h1>User Registration</h1>
-    <form th:action="@{/create-dorm}" method="POST" th:object="${dorm}" enctype="multipart/form-data">
+    <form th:action="@{/create-dorm}" method="POST" th:object="${dorm}" >
         <label>Name:</label>
         <input type="text" th:field="*{dormName}" /><br/>
 
