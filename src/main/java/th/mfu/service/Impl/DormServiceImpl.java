@@ -80,5 +80,57 @@ public class DormServiceImpl implements DormService{
         dormId++;
         return dormRepository.save(dorm);
     }
+
+    @Override
+    public void updateDormInfo(Dorm originalDorm, DormDto updateDorm) {
+        Long originalDormId = originalDorm.getDormId();
+        updateDorm.setLandlord(originalDorm.getLandlord());
+        if(updateDorm.getDormName().equals("")){
+            updateDorm.setDormName(originalDorm.getDormName());
+        }
+        if(updateDorm.getDormDesc().equals("")){
+            updateDorm.setDormDesc(originalDorm.getDormDesc());
+        }
+        if(updateDorm.getPrice() == null){
+            updateDorm.setPrice(originalDorm.getPrice());
+        }
+        if(updateDorm.getBedroom() == null){
+            updateDorm.setBedroom(originalDorm.getBedroom());
+        }
+        if(updateDorm.getImg1().equals("")){
+            updateDorm.setImg1(originalDorm.getImg1());
+        }
+        if(updateDorm.getImg2().equals("")){
+            updateDorm.setImg2(originalDorm.getImg2());
+        }
+        if(updateDorm.getImg3().equals("")){
+            updateDorm.setImg3(originalDorm.getImg3());
+        }
+        if(updateDorm.getImg4().equals("")){
+            updateDorm.setImg4(originalDorm.getImg4());
+        }
+        if(updateDorm.getBathroom() == null){
+            updateDorm.setBathroom(originalDorm.getBathroom());
+        }
+        if(updateDorm.getCity().equals("")){
+            updateDorm.setCity(originalDorm.getCity());
+        }
+        if(updateDorm.getPrice() == 0){
+            updateDorm.setPrice(originalDorm.getPrice());
+        }
+        if(updateDorm.getAmenities().equals("")){
+            updateDorm.setAmenities(originalDorm.getAmenities());
+        }
+        if(updateDorm.getLatitude() == null){
+            updateDorm.setLatitude(originalDorm.getLatitude());
+        }
+        if(updateDorm.getLongitude() == null){
+            updateDorm.setLongitude(originalDorm.getLongitude());
+        }
+        dormRepository.updateDorm(originalDormId, updateDorm.getDormName(), updateDorm.getDormDesc(),
+                updateDorm.getPrice(),updateDorm.getImg1(),originalDorm.getImg2(),originalDorm.getImg3(),originalDorm.getImg4(), updateDorm.getBedroom(), updateDorm.getBathroom(),
+                updateDorm.getCity(), updateDorm.getAmenities(), updateDorm.getLatitude(),
+                updateDorm.getLongitude());
+    }
     
 }

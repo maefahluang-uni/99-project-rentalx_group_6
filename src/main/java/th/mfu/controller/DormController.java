@@ -116,4 +116,23 @@ public class DormController {
         return "redirect:/landlord-dorms";
         
     }
+
+    @GetMapping("/updateDorm/{dorm_id}")
+    public String updateDorm(Model model,@PathVariable("dorm_id") Long dormId){
+        model.addAttribute("dorm",dormService.findById(dormId));
+        model.addAttribute("updatedDorm",new DormDto());
+        return "update-dorm";
+    }
+
+    @PostMapping("/updateDorm/{dorm_id}")
+    public String submitUpdatedDorm(Model model,@PathVariable("dorm_id") Long dormId,
+                                    @ModelAttribute("updatedDorm") DormDto updateDorm){
+        System.out.println("=======================================================================");
+        System.out.println(updateDorm.getDormDesc());
+        System.out.println(updateDorm.getCity());
+        System.out.println(updateDorm.getAmenities());
+        System.out.println("=======================================================================");
+        dormService.updateDormInfo(dormService.findById(dormId),updateDorm);
+        return "redirect:/landlord-dorms";
+    }
 }

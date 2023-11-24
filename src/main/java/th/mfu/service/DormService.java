@@ -21,4 +21,6 @@ public interface DormService {
     List<Dorm> findDormByLandlordId(Long landlordId);
 
     Dorm save(DormDto dormDto);
+
+    void updateDormInfo(Dorm originalDorm, DormDto updateDorm);
 }
