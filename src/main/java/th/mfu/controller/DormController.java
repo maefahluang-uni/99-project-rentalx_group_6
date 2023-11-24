@@ -20,9 +20,12 @@ import th.mfu.model.User;
 import th.mfu.service.DormService;
 import th.mfu.service.ReviewService;
 import th.mfu.service.UserService;
+import th.mfu.service.WishListService;
 
 import java.io.IOException;
 import java.util.List;
+
+import javax.transaction.Transactional;
 @Controller
 public class DormController {
 
@@ -34,6 +37,9 @@ public class DormController {
 
     @Autowired
     private ReviewService reviewService;
+
+    @Autowired
+    private WishListService wishlistService;
 
     @GetMapping("/dorms")
     public String dormList(Model model,@AuthenticationPrincipal UserDetails userDetails){
@@ -133,6 +139,15 @@ public class DormController {
         System.out.println(updateDorm.getAmenities());
         System.out.println("=======================================================================");
         dormService.updateDormInfo(dormService.findById(dormId),updateDorm);
+        return "redirect:/landlord-dorms";
+    }
+
+    @Transactional
+    @GetMapping("deleteDorm/{dorm_id}")
+    public String deleteDorm(@PathVariable("dorm_id") Long dormId){
+        wishlistService.deleteAllByDormId(dormId);
+        reviewService.deleteByDormId(dormId);
+        dormService.deleteDormById(dormId);
         return "redirect:/landlord-dorms";
     }
 }

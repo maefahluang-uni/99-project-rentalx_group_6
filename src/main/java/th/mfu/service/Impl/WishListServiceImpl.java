@@ -45,5 +45,10 @@ public class WishListServiceImpl implements WishListService{
             System.out.println("error");
         }
     }
+
+    @Override
+    public void deleteAllByDormId(Long dormId) {
+        wishListRepository.deleteAllByDormId(dormId);
+    }
     
 }

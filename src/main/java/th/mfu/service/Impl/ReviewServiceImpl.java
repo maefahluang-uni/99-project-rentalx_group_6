@@ -28,5 +28,10 @@ public class ReviewServiceImpl implements ReviewService{
         reviewId++;
         return reviewRepository.save(review);
     }
+
+    @Override
+    public void deleteByDormId(Long dormId) {
+        reviewRepository.deleteByDormId(dormId);
+    }
     
 }

@@ -103,11 +103,13 @@
               <span th:text="${dorm.bathroom}"></span>
             </div>
           </div>
-
+          
           <div class="btns">
-            <button class="product-button">Add to Cart</button>
             <a th:href="@{/updateDorm/{dorm_id} (dorm_id=${dorm.dormId})}">
-              <button class="map-button" ><i class="fa-solid fa-location-dot"></i> Map</button>
+              <button class="product-button">Update</button>
+            </a>
+            <a th:href="@{deleteDorm/{dorm_id} (dorm_id=${dorm.dormId})}">
+              <button class="map-button" ><i class="fa-solid fa-location-dot"></i> Delete</button>
             </a>
 
 

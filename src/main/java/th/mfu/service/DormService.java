@@ -23,4 +23,6 @@ public interface DormService {
     Dorm save(DormDto dormDto);
 
     void updateDormInfo(Dorm originalDorm, DormDto updateDorm);
+
+    void deleteDormById(Long dormId);
 }

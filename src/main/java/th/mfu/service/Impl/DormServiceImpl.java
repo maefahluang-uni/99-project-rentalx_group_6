@@ -132,5 +132,12 @@ public class DormServiceImpl implements DormService{
                 updateDorm.getCity(), updateDorm.getAmenities(), updateDorm.getLatitude(),
                 updateDorm.getLongitude());
     }
+
+    @Override
+    public void deleteDormById(Long dormId) {
+        dormRepository.deleteById(dormId);
+    }
+
+    
     
 }

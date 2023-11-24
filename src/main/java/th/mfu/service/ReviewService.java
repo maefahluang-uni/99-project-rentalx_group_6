@@ -10,5 +10,6 @@ public interface ReviewService {
     List<Review> findByDormId(Long dormId);
 
     Review save(ReviewDto reviewDto);
-    
+
+    void deleteByDormId(Long dormId);
 }

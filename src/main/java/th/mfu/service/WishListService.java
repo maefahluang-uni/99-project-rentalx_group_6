@@ -14,5 +14,7 @@ public interface WishListService {
     WishList save(WishListDto wishListDto);
 
     void deleteFromWishList(Long userId, Long dorm_id);
+
+    void deleteAllByDormId(Long dormId);
     
 }
