@@ -617,19 +617,19 @@ width: 140px;
 height: 130px;
 }
 .username{
-display: flex;
-width: 300px;
-justify-content: space-between;
-
-align-items: center;
-margin-top: 60px;
+    display: flex;
+    width: 475px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
 }
 .userphoto{
-display: flex;
-justify-content: space-evenly;
-align-items: center;
-width: 1560px;
-}
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 1262px;
+    margin-left: 137px;
+    }
 .properties{
 margin-top: 150px;
 width: 230px;

@@ -24,7 +24,12 @@
         <i class="fa-solid fa-bars"></i>
     </div>
     <div class="nav">
-        <a th:href="@{/profile}">
+        <!-- <a th:href="@{/profile}">
+            <div class="user-button">
+              <button><span th:text="${user.userName}"></span></button>
+            </div>
+          </a> -->
+          <a th:href="@{/profile}">
             <div class="user-button">
               <button><span th:text="${user.userName}"></span></button>
             </div>
@@ -78,18 +83,20 @@
 
 
         <div class="card" >
+           
             <div class="card-header">
                 <p>Reviews and feebacks about this apartment</p>
             </div>
 
+            <div class="cardcc">
             <div class="card-content" th:each="review1 : ${reviewsInRepo}">
-                <div>
+                <div class="cc">
                     <div class="review">
                         <div class="circle">
                             <button class="colour"></button>
                         </div>
                         <div class="feedback">
-                            <p th:text="${review1.user.userName}"></p>
+                            <strong th:text="${review1.user.userName}"></strong>
                             <div class="write">
                                 <p th:text="${review1.reviewFromUser}"></p>
                             </div>
@@ -97,11 +104,11 @@
                     </div>
                 </div>
             </div>
+            
             </div>
-
-            <form id="review-form" th:action="@{/add-review/{dorm_id} (dorm_id=${dorm.dormId})}" method="post" th:object="${review}">
+            <form class="reviewform" id="review-form" th:action="@{/add-review/{dorm_id} (dorm_id=${dorm.dormId})}" method="post" th:object="${review}">
                 <label for="rating">Rating:</label>
-                <select id="rating" name="rating" th:field="*{rating}" >
+                <select class="giverate" id="rating" name="rating" th:field="*{rating}" >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -109,13 +116,13 @@
                     <option value="5">5</option>
                 </select>
 
-                <label for="review">Review:</label>
-                <textarea id="review" name="review" rows="4" cols="50" th:field="*{reviewFromUser}"></textarea>
+                
+                <textarea placeholder="Honest Review" class="reviewtext" id="review" name="review" rows="5" cols="50" th:field="*{reviewFromUser}"></textarea>
 
-                <button type="submit" >Submit Review</button>
+                <button class="smbtn" type="submit" >Submit Review</button>
             </form>
 
-
+            </div>
 
         <div class="bookbtn">
             <button class="book">Book room now!</button>
