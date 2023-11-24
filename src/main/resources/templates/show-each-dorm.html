@@ -60,10 +60,18 @@
 </div>
 
 <div class="buttons">
-    <button class="btn6"><i class="fa-solid fa-location-dot"></i> Map</button>
+    <a th:href="@{'https://www.google.com/maps?q='+ ${dorm.dormName}+' MFU'}"
+    target="_blank">
+        <button class="btn6"><i class="fa-solid fa-location-dot"></i> Map</button>
+    </a>
+    
     <div class="buttone">
-        <button class="btn5"><i class="fa-regular fa-heart"></i> favourite</button>
-        <button class="btn4"><i class="fa-solid fa-share"></i> Share</button>
+        <a th:href="@{/wishlists}">
+            <button class="btn5"><i class="fa-regular fa-heart"></i> favourite</button>
+        </a>
+        <a>
+            <button class="btn4"><i class="fa-solid fa-share"></i> Share</button>
+        </a>
     </div>
 </div>
 
