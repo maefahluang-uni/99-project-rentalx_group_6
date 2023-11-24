@@ -107,8 +107,11 @@ public class DormController {
     }
 
     @GetMapping("/create-dorm")
-    public String showCreateDormForm(Model model){
+    public String showCreateDormForm(Model model,@AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User landlord = userService.findByEmail(email);
         model.addAttribute("dorm",new DormDto());
+        model.addAttribute("landlord", landlord);
         return "create-dorm";
     }
     @PostMapping("/create-dorm")
@@ -124,9 +127,12 @@ public class DormController {
     }
 
     @GetMapping("/updateDorm/{dorm_id}")
-    public String updateDorm(Model model,@PathVariable("dorm_id") Long dormId){
+    public String updateDorm(Model model,@PathVariable("dorm_id") Long dormId,@AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User landlord = userService.findByEmail(email);
         model.addAttribute("dorm",dormService.findById(dormId));
         model.addAttribute("updatedDorm",new DormDto());
+        model.addAttribute("landlord", landlord);
         return "update-dorm";
     }
 

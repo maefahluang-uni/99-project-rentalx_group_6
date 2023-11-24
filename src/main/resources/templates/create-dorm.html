@@ -1,60 +1,200 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Create Dorm Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" th:href="@{../css/list.css}">
+        <link rel="stylesheet" th:href="@{../css/landlord.css}">
 </head>
 <body>
-<h1>This is dorm create Form!</h1>
-<div align="center">
-    <h1>User Registration</h1>
-    <form th:action="@{/create-dorm}" method="POST" th:object="${dorm}" >
-        <label>Name:</label>
-        <input type="text" th:field="*{dormName}" /><br/>
 
-        <label>Desc:</label>
-        <input type="text" th:field="*{dormDesc}" /><br/>
-
-        <label>Price:</label>
-        <input type="number" th:field="*{price}" /><br/>
-
-        <label>Image1: </label>
-        <input type="text" th:field="*{img1}" /><br/>
-
-        <label>Image2: </label>
-        <input type="text" th:field="*{img2}" /><br/>
-
-        <label>Image3:</label>
-        <input type="text" th:field="*{img3}" /><br/>
-
-        <label>Imgae4:</label>
-        <input type="text" th:field="*{img4}" /><br/>
-
-        <label>Bedroom:</label>
-        <input type="number" th:field="*{bedroom}" /><br/>
+        <nav class="navbar">
+                <div class="logo">
+                    <a th:href="@{/landlord-dorms}" class="logotag"><h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3></a> 
+                </div>
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="nav">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOiYElieWi3Z9s0BBnHMlPIbLM2Yfs3iLnw&usqp=CAU" class="user" alt=""> 
+        
+                <div class="user-button">
+                    <a th:href="@{/profile}"><button><span th:text="${landlord.userName}"></span></button></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <a th:href="@{/contactus}"><button class="btn6"> Contact Us</button></a>
+                    </ul>
+                </div>
+            </div>
+            
+            </nav>
 
 
-        <label>Bathroom:</label>
-        <input type="number" th:field="*{bathroom}" /><br/>
+            <div class="welcome">
+               <h1> Welcome <span th:text="${landlord.userName}"></span></h1>
+            </div>
 
-        <label>City:</label>
-        <input type="text" th:field="*{city}" /><br/>
+            <div>
+                <div class="CYP">
+                        <h1 class="create">
+                                Create your Property Now!
+                        </h1>
+                        <div>
+                                <a th:href="@{/landlord-dorms}">
+                                    <button class="propertybtn">My Properties</button>
+                                </a>
+                        </div>
+                </div>
+               
+            </div>
 
-        <label>Amenities:</label>
-        <input type="text" th:field="*{amenities}" /><br/>
-
-        <label>Latitude:</label>
-        <input type="text" th:field="*{latitude}" /><br/>
-
-        <label>Longitude:</label>
-        <input type="text" th:field="*{longitude}" /><br/>
 
 
-        <button type="submit">Submit</button>
+            <div class="landlordcontainer">
 
-        <a href="/landlord-dorms">Back to dorms</a>
+                <form th:action="@{/create-dorm}" method="POST" th:object="${dorm}">
+                    <div class="landlordcard">
+                        <div class="inputs">
+                              <label for="">Property Name</label>
+                            <div>
+                                <input class="inp" type="text" th:field="*{dormName}" placeholder="Property Name*">
+                            </div>
+                        </div>
+                          <div class="inputs">
+                                <label for="">City</label>
+                              <div>
+                                  <input class="inp" type="text" th:field="*{city}" placeholder="City*">
+                              </div>
+                          </div>
+                          <div class="inputs">
+                            <label for="">Latitude</label>
+                          <div>
+                              <input class="inp" type="text" th:field="*{latitude}" placeholder="Longitude*">
+                          </div>
+                      </div>
+                          <div class="inputs">
+                                <label for="">Longitude</label>
+                              <div>
+                                  <input class="inp" type="text" th:field="*{longitude}" placeholder="Longitude*">
+                              </div>
+                          </div>
+                          <div class="inputs">
+                                <label for="">Property's Description</label>
+                              <div>
+                                 <textarea class="area" placeholder="Property's Description" th:field="*{dormDesc}" name="" id="" cols="71" rows="13"></textarea>
+                              </div>
+                          </div>
+                          <div class="inputs">
+                                <label for="">Price/Month</label>
+                              <div>
+                                  <input class="inp" type="text" th:field="*{price}" placeholder="Price/Month*">
+                              </div>
+                          </div>
+                          <div class="inputs">
+                                <label for="">Deposit</label>
+                              <div>
+                                  <input class="inp" type="text"  placeholder="Deposit*">
+                              </div>
+                          </div>
+                          <div class="inputs">
+                                <label for="">Image 1</label>
+                              <div>
+                                  <input class="inp" type="text" th:field="*{img1}" placeholder="Image Link*">
+                              </div>
+                          </div>
+                          <div class="inputs">
+                                <label for="">Image 2</label>
+                                <div>
+                                    <input class="inp" type="text" th:field="*{img2}" placeholder="Image Link*">
+                                </div>
+                         </div>
+                         <div class="inputs">
+                            <label for="">Image 3</label>
+                            <div>
+                                <input class="inp" type="text" th:field="*{img3}" placeholder="ImageLink*">
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <label for="">Image 4</label>
+                            <div>
+                                <input class="inp" type="text" th:field="*{img4}" placeholder="ImageLink*">
+                            </div>
+                        </div>
+                          <div  class="type">
+                                <div class="inputs">
+                                        <label for="">Number of Bedrooms</label>
+                                      <div>
+                                          <input class="typeinp" type="number" th:field="*{bedroom}" placeholder="Number of Bedrooms*">
+                                      </div>
+                                  </div>
+                                  <div class="inputs">
+                                        <label for="">Number of Bathrooms</label>
+                                      <div>
+                                          <input class="typeinp" type="number" th:field="*{bathroom}" placeholder="Number of Bathrooms*">
+                                      </div>
+                                  </div>
+                          </div>
 
-    </form>
-</div>
+                          <div class="inputs">
+                                <label for="">Amenities</label>
+                              <div>
+                                 <textarea class="area" placeholder="Amenities*" th:field="*{amenities}" name="" id="" cols="71" rows="5"></textarea>
+                              </div>
+                          </div>
+                          
+                            <div class="proceedbtn">
+                                <button type="submit" "probtn">Proceed</button>
+                            </div>
+                    </div>
+                </form>
+               
+
+            </div>
+
+
+            <div class="footer">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                     <p>fb.com/renfolx.coth</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="footer-section links">
+                       
+                        <ul>
+                            <li><span>+66955344442</span></li>
+                            <li><span>contact@rentalx.co.th</span></li>
+                          
+                        </ul>
+                    </div>
+                    <div class="footer-section contact">
+                        <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
 </body>
+
+<script>
+        function updateFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const customInputLabel = document.getElementById('customInputLabel');
+                let custominput = document.querySelector(".custom-input")
+            if (fileInput.files.length > 0) {
+                // Get the name of the selected file
+                const fileName = fileInput.files[0].name;
+                
+                // Update the content of the label with the file name
+                custominput.style.textContent = " ";
+                customInputLabel.textContent = fileName;
+            } else {
+                // Reset the label content if no file is selected
+                customInputLabel.textContent = 'Upload File';
+            }
+        }
+    </script>
 </html>
