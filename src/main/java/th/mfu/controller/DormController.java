@@ -156,4 +156,15 @@ public class DormController {
         dormService.deleteDormById(dormId);
         return "redirect:/landlord-dorms";
     }
+    
+    @GetMapping("showPayment/{dorm_id}")
+    public String showPayment(Model model,@PathVariable("dorm_id") Long dormId,
+                                @AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User user = userService.findByEmail(email);
+        model.addAttribute("user", user);
+        model.addAttribute("dorm",dormService.findById(dormId));
+        return "payment-page";
+    }
+    
 }

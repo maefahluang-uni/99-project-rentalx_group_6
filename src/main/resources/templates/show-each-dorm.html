@@ -13,7 +13,7 @@
 <body>
 
 <nav class="navbar">
-    <a th:href="@{/dorms}" class="logo1">
+    <a th:href="@{${user.role == 'USER' ? '/dorms' : '/landlord-dorms'}}" class="logo1">
         <div class="logo3">
           
             <h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3>
@@ -36,7 +36,9 @@
           </a>
         <div class="menu">
             <ul>
-                <button class="btn6"> Contact Us</button>
+                <a th:href="@{/contactus}">
+                    <button class="btn6"> Contact Us</button>
+                </a>
             </ul>
         </div>
     </div>
@@ -125,7 +127,9 @@
             </div>
 
         <div class="bookbtn">
-            <button class="book">Book room now!</button>
+            <a th:href="@{/showPayment/{dorm_id} (dorm_id=${dorm.dormId})}">
+                <button class="book">Book room now!</button>
+            </a>
         </div>
 
         </div>

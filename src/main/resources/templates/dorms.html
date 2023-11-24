@@ -3,6 +3,26 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" th:href="@{../css/list.css}">
+  <style>
+    #shareLinkContainer {
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* Style the copy link button */
+    #copyLinkButton {
+      cursor: pointer;
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar">
@@ -84,7 +104,12 @@
                 <button class="heart"> <i class="fa-regular fa-heart full_red"></i></button>
               </a>
 
-              <button class="share">   <i class="fa-solid fa-share"></i></button>
+              <button class="share" onclick="toggleShareLink()">   <i class="fa-solid fa-share"></i></button>
+              <div id="shareLinkContainer">
+                <p>Share this link:</p>
+                <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${dorm.dormId}" id="shareLink" readonly>
+                <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
+              </div>
             </div>
           </div>
 
@@ -143,6 +168,20 @@
     </div>
   </div>
 </div>
+
+<script>
+  function toggleShareLink() {
+    var shareLinkContainer = document.getElementById("shareLinkContainer");
+    shareLinkContainer.style.display = (shareLinkContainer.style.display === "block") ? "none" : "block";
+  }
+
+  function copyLink() {
+    var shareLink = document.getElementById("shareLink");
+    shareLink.select();
+    document.execCommand("copy");
+    alert("Link copied to clipboard!");
+  }
+</script>
 
 </body>
 <script src="rent.js"></script>
