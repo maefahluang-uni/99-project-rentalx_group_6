@@ -108,7 +108,7 @@ h2 {
     padding: 20px 5%;
 }
 .wrapper h1{
-    font-size: 24px;
+    font-size: 26px;
     text-align: center;
     font-weight: 700;
 }
@@ -131,12 +131,11 @@ h2 {
     font-size: 16px;
     color: black;
     padding: 20px 45px 20px 30px;
-    /* padding: 10px; */
     margin: 0 10px;
-    
+    flex: 1;
 }
 .input-box label {
-    width: 100px;
+    width: 110px;
     margin: 0 10px;
     font-weight: bold;
     font-size: 18px;
