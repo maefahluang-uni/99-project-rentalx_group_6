@@ -44,8 +44,11 @@ public class DormController {
     @GetMapping("/dorms")
     public String dormList(Model model,@AuthenticationPrincipal UserDetails userDetails){
         String email = userDetails.getUsername();
+        User user = userService.findByEmail(email);
+        Long user_id = user.getId();
         model.addAttribute("dorms",dormService.getAllDorms());
         model.addAttribute("user",userService.findByEmail(email));
+        model.addAttribute("wishlists", wishlistService.findByUserId(user_id));
         return "dorms";
     }
 

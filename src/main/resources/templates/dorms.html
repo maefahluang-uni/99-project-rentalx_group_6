@@ -4,24 +4,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" th:href="@{../css/list.css}">
   <style>
-    #shareLinkContainer {
+   #shareLinkContainer {
       display: none;
       margin-top: 10px;
     }
 
-    /* Style the copy link button */
-    #copyLinkButton {
-      cursor: pointer;
-      background-color: #008CBA;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      border-radius: 4px;
-    }
+
+  #copyLinkButton {
+  cursor: pointer;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 8px 12px; /* Adjust the padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: 10px; /* Add margin-right to move the button to the right */
+}
+
+    .heartbtn {
+    color: red; /* Change this to your desired styling for the red heart */
+}
   </style>
 </head>
 <body>
@@ -78,9 +83,9 @@
     </select>
   </form>
   <div class="wlmap">
-  <a th:href="@{/wishlists}">
-    <button class="btn5"><i class="fa-regular fa-heart"></i> Wishlist</button>
-  </a>
+    <a th:href="@{/wishlists}">
+      <button class="btn5"><i class="fa-regular fa-heart"></i> Wishlist</button>
+    </a>
   <a th:href="@{/show-map}">
     <button class="btn6"><i class="fa-solid fa-location-dot"></i> Map</button>
   </a>
@@ -102,16 +107,17 @@
           <div class="title">
             <h3 th:text="${dorm.dormName}"></h3>
             <div class="bb">
-              <a th:href="@{/add-wishList/{dorm_id}(dorm_id=${dorm.dormId})}">
-                <button class="heart"> <i class="fa-regular fa-heart full_red"></i></button>
-              </a>
+              <a th:href="@{/add-wishList/{dorm_id}(dorm_id=${dorm.dormId})}"
+                <button class="heart" onclick="heartfunction(${dorm.dormId})"> <i class="fa-solid fa-heart"></i></button>
+            </a>
+            
 
-              <button class="share" onclick="toggleShareLink()">   <i class="fa-solid fa-share"></i></button>
-              <div id="shareLinkContainer">
-                <p>Share this link:</p>
-                <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${dorm.dormId}" id="shareLink" readonly>
-                <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
-              </div>
+            <button class="share" onclick="toggleShareLink()">   <i class="fa-solid fa-share"></i></button>
+            <div id="shareLinkContainer">
+              <p>Share this link:</p>
+              <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${dorm.dormId}" id="shareLink" readonly>
+              <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
+            </div>
             </div>
           </div>
 
@@ -184,7 +190,38 @@
     document.execCommand("copy");
     alert("Link copied to clipboard!");
   }
+
+
+  isliked = false;
+  function heartfunction(dormId){
+      let hearts = document.querySelectorAll(".heart i")
+      hearts[id-1].classList.add("heartbtn");
+      isliked = !isliked;
+      if(!isliked){
+          heart[id-1].classList.remove("heartbtn")
+      }
+  }
 </script>
+<!-- 
+<script>
+  function heartfunction(dormId, inWishlist) {
+    let heartButton = document.getElementById(`heart-${dormId}`);
+
+    if (inWishlist) {
+        // Remove from wishlist (turn off red)
+        heartButton.classList.remove("heartbtn");
+    } else {
+        // Add to wishlist (turn on red)
+        heartButton.classList.add("heartbtn");
+    }
+
+    // Update the inWishlist flag (toggle)
+    dorm.inWishlist = !inWishlist;
+
+    // Other logic you may want to perform (e.g., send an AJAX request to update the server)
+}
+
+</script> -->
 
 </body>
 <script src="rent.js"></script>

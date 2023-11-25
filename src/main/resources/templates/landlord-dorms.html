@@ -32,7 +32,7 @@
     </div>
   </div>
 </nav>
-<a th:href="@{/create-dorm}">Create Dorm</a>
+<a th:href="@{/create-dorm}"><button class="createbutton">Create</button></a>
 <form th:action="@{/dorms/search}" method="POST">
   <div class="search-container">
     <div class="search-bar">
@@ -109,7 +109,7 @@
               <button class="product-button">Update</button>
             </a>
             <a th:href="@{deleteDorm/{dorm_id} (dorm_id=${dorm.dormId})}">
-              <button class="map-button" ><i class="fa-solid fa-location-dot"></i> Delete</button>
+              <button class="delete-button" ><i class="fa-solid fa-location-dot"></i> Delete</button>
             </a>
 
 

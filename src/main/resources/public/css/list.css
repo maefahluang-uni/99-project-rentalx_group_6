@@ -195,7 +195,12 @@ input[type="text"] {
     border: none;
     background-color: rgb(202, 221, 215);
 }
-
+.btn5:hover{
+    background-color: rgb(234,241,238);
+}
+.btn:active{
+    background-color: rgb(202, 221, 215);
+}
 .btn6 {
     cursor: pointer;
     margin-left: 10px;
@@ -222,7 +227,10 @@ input[type="text"] {
 }
 
 .btn6:hover{
-    background-color: #1e1919;
+    background-color: #5e5b5b;
+}
+.btn6:active{
+    background-color: rgb(30,12,46);
 }
 
 .photocard{
@@ -276,6 +284,10 @@ input[type="text"] {
     display: flex;
     justify-content: space-between;
 }
+.title a{
+    color: black;
+    text-decoration: none;
+}
 .bb{
     align-items: center;
     display: flex;
@@ -303,7 +315,7 @@ input[type="text"] {
     justify-content: space-between;
 }
 .bed{
-    margin-left: 30px;
+
     font-size: 15px;
     margin-bottom: 20px;
     margin-top: 10px;
@@ -639,6 +651,12 @@ border: none;
 background-color: rgb(240, 170, 19);
 color: white;
 }
+.properties:hover{
+    background-color: rgb(222, 182, 95);
+}
+.properties:active{
+    background-color: rgb(231, 170, 40);
+}
 .butts{
 margin-bottom: 30px;
 height: 35px;
@@ -805,4 +823,50 @@ overflow : hidden;
 
 a{
 text-decoration: none;
+}
+delete-button{
+    border-radius: 10px;
+    height: 28px;
+    width: 80px;
+    border:none;
+    cursor: pointer;
+
+}
+.delete-button:hover{
+    background-color: red;
+}
+.delete-button:active{
+    background-color: rgb(212, 107, 107);
+}
+.createbutton{
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    border:none;
+    width: 94px;
+    margin-top: 20px;
+    margin-right: 15px;
+    color: #1c1a1a;
+    position: absolute;
+    right: 0;
+    background-color: #cec9e9;
+    font-size: 14px;
+    cursor: pointer;
+}
+.createbutton:hover{
+    background-color: #eae7fb;
+}
+.createbutton:active{
+    background-color: #cec9e9;
+}
+.user-button button:hover{
+    background-color:  rgb(228, 185, 91);
+}
+
+.user-button button:hover{
+    background-color:  rgb(233, 175, 50);
+}
+.heartbtn{
+    color: red;
 }

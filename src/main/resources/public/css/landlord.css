@@ -25,7 +25,7 @@
   }
   .landlordcontainer {
     width: 60%;
-    height: 1450px;
+    height: 1700px;
     background-color: rgb(220, 236, 246);
     padding: auto;
     margin: auto;
@@ -118,10 +118,10 @@
     text-align: center;
   }
   .probtn {
-    width: 260px;
+    width: 222px;
     height: 40px;
     border: none;
-    font-size: 25px;
+    font-size: 22px;
     border-radius: 16px;
     color: white;
     background-color: rgb(255, 149, 0);
