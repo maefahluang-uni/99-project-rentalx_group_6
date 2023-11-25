@@ -47,13 +47,14 @@
 
 <div class="photo-container">
     <div class="photo1">
-        <img class="photohalf" th:src="@{/images/{imageName}(imageName=${dorm.img1})}" alt="Product Image">
+        <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img1})}" alt="Product Image">
+
     </div>
     <div class="photo2">
         <div class="ph2container">
-        <img class="photoquarter" th:src="@{/images/{imageName}(imageName=${dorm.img2})}" alt="Product Image">
-        <img class="photoquarter" th:src="@{/images/{imageName}(imageName=${dorm.img3})}" alt="Product Image">
-        <img class="photoquarter" th:src="@{/images/{imageName}(imageName=${dorm.img4})}" alt="Product Image">
+        <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img2})}" alt="Product Image">
+        <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img3})}" alt="Product Image">
+        <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img4})}" alt="Product Image">
         <div id="map" style="height: 200px; width: 330px;"></div>
         </div>
     </div>

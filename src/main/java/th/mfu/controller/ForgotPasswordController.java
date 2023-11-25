@@ -57,7 +57,7 @@ public class ForgotPasswordController {
 
         forgotPasswordService.save(forgotPasswordTokenDto);
 
-        String emailLink = "https://redesigned-eureka-qrx5gw755xvfpwr-8100.app.github.dev/reset-password?token=" + forgotPasswordTokenDto.getToken();
+        String emailLink = "https://lab-cd-fpb3mzsaaq-uc.a.run.app/reset-password?token=" + forgotPasswordTokenDto.getToken();
 
 //        System.out.println("============================================================================");
 //        System.out.println(user.getEmail());

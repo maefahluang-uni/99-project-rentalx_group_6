@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
 import th.mfu.dto.DormDto;
 import th.mfu.dto.ReviewDto;
@@ -22,7 +20,6 @@ import th.mfu.service.ReviewService;
 import th.mfu.service.UserService;
 import th.mfu.service.WishListService;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.transaction.Transactional;

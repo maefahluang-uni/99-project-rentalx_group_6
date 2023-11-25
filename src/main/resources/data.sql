@@ -17,7 +17,7 @@ INSERT INTO DORM(dormID,dormName,dormDesc, price, bedroom , bathroom , img1 , im
 ', 4300 ,1, 1 , 
 'uloft1.jpg' , 'uloft2.jpg' , 'uloft3.jpg' , 'uloft4.jpg', 'Mueang Chiang Rai' , 
 'Common Room,Parking Space,free wifi,Security System',20.048692419040375, 99.87987866748955, 1),
-( 4, 'FahRung Dormitory', 'Small dormitory with 3 floors, female dormitory, 1 type of rooms : single bed rooms (28 sq m.)', 3200 ,1, 1 ,
+( 4, 'FahRung Dormitory หอพักหญิงฟ้ารุ่ง', 'Small dormitory with 3 floors, female dormitory, 1 type of rooms : single bed rooms (28 sq m.)', 3200 ,1, 1 ,
  'fah1.jpg' , 'fah2.jpg' , 'fah3.jpg' , 'fah4.jpg', 'Mueang Chiang Rai' , 
 'Coin operated washing machine,Parking Space,free wifi,Water Dispenser',20.048389455522774, 99.87745394050596, 1),
 ( 5, 'Baan Soi 5', '2 types of rooms : Private room (1 person) and Twin room (1-2 person)

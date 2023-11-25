@@ -37,7 +37,8 @@
         <a th:href="@{/dorm/{id} (id=${wishlist.dorm.dormId})}">
           <div>
             <div class="image-gallery">
-              <img class="dorm-photo" th:src="@{/images/{imageName}(imageName=${wishlist.dorm.img1})}" alt="Product Image">
+              <!-- <img class="dorm-photo" th:src="@{/{imageName}(imageName=${wishlist.dorm.img1})}" alt="Product Image"> -->
+              <img class="dorm-photo" th:src="${wishlist.dorm.img1}" alt="Product Image">
             </div>
   
             <div class="title">
