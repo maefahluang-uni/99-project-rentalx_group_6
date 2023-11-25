@@ -49,6 +49,12 @@ public class DormController {
         return "dorms";
     }
 
+    @GetMapping("/dorms-wt")
+    public String showDormsWithoutLogin(Model model){
+        model.addAttribute("dorms",dormService.getAllDorms());
+        return "dorms-wt-login";
+    }
+
     @PostMapping("/dorms/search")
     public String searchDorms(@RequestParam String keyword, Model model,@AuthenticationPrincipal UserDetails userDetails){
         String email = userDetails.getUsername();

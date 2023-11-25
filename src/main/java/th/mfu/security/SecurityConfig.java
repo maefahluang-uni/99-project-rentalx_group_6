@@ -28,10 +28,10 @@ public class SecurityConfig {
 
         http.csrf(c -> c.disable())
 
-                .authorizeRequests(request -> request.antMatchers("/admin-page","/create-dorm","landlord-dorms")
+                .authorizeRequests(request -> request.antMatchers("/admin-page","dorm","/create-dorm","landlord-dorms")
                         .hasAuthority("LANDLORD")
                         .antMatchers("/wishlists","/add-wishList/**").hasAuthority("USER")
-                        .antMatchers("/password-request/**","/registration", "/css/**","/reset-password/**","/contactus","/searchPage","/dorms").permitAll()
+                        .antMatchers("/password-request/**","/registration", "/css/**","/reset-password/**","/contactus","/searchPage","/dorms-wt").permitAll()
                         .anyRequest().authenticated())
 
                 .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")

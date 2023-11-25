@@ -42,14 +42,14 @@
 
     <a th:href="@{/profile}">
       <div class="user-button">
-        <button><span th:text="${user.userName}"></span></button>
+        <button>Guest</button>
       </div>
     </a>
     <div class="menu">
       <ul>
         <a th:href="@{/contactus}">
-          <button class="btn6"> Contact Us</button>
-      </a>
+            <button class="btn6"> Contact Us</button>
+        </a>
       </ul>
     </div>
   </div>
@@ -96,7 +96,8 @@
       <a th:href="@{/dorm/{id} (id=${dorm.dormId})}">
         <div>
           <div class="image-gallery">
-            <img class="dorm-photo" th:src="@{/images/{imageName}(imageName=${dorm.img1})}" alt="Product Image">
+            <img class="dorm-photo" th:src="@{images/{imageName}(imageName=${dorm.img1})}" alt="Dorm Image">
+
           </div>
 
           <div class="title">

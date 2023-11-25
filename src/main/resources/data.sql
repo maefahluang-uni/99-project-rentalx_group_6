@@ -11,7 +11,7 @@ INSERT INTO DORM(dormID,dormName,dormDesc, price, bedroom , bathroom , img1 , im
 ( 1, 'Regent Mansion', 'There are 16 buildings, 796 rooms, 2 types of rooms : single bed rooms and twin bed rooms. (28 sq m.)
 ', 4000 ,2, 1 , 'regent1.jpg' , 'regent2.jpg' , 'regent3.jpg' , 'regent4.jpg', 'Mueang Chiang Rai' , 
 'Free shuttle bus from dorm to MFU,free wifi,Security System,Exercise Facilities,Hot shower',20.04310274137123, 99.88058033865333,1),
-( 2, 'Kittitya Dormitory', 'The dormitory has 3 floors, a fuchsia pink building. orange-red roof, 2 types of rooms : a single bed room with air conditioning and single bed room without air conditioning. (28 sq m.)', 2800 ,1, 1 , 'kittitya1.png' , 'kittityat2.jpg' , 'kittitya3.jpg' , 'kittitya4.jpg', 'Mueang Chiang Rai' , 
+( 2, 'Kittitya Dormitory', 'The dormitory has 3 floors, a fuchsia pink building. orange-red roof, 2 types of rooms : a single bed room with air conditioning and single bed room without air conditioning. (28 sq m.)', 2800 ,1, 1 , 'kittitya1.png' , 'kittitya2.jpg' , 'kittitya3.jpg' , 'kittitya4.jpg', 'Mueang Chiang Rai' , 
 'Parking Space,free wifi,Security System,Exercise Facilities,Hot shower',20.04612470070634, 99.88341218098132, 1),
 ( 3, 'U LOFT Apartment', 'The building has 4 floors, female dormitory, 2 types of rooms : big single bed rooms (27 sq m.) and small bed rooms (30 sq m.)
 ', 4300 ,1, 1 , 
