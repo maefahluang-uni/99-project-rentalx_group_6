@@ -32,6 +32,12 @@ public class DormServiceImpl implements DormService{
             //you can add dorm description here
             if (dorm.getDormName().toLowerCase().contains(keyword.toLowerCase())) {
                 searchResults.add(dorm);
+            }else if(dorm.getCity().toLowerCase().contains(keyword.toLowerCase())){
+                searchResults.add(dorm);
+            }else if(dorm.getAmenities().toLowerCase().contains(keyword.toLowerCase())){
+                searchResults.add(dorm);
+            }else if(dorm.getDormDesc().toLowerCase().contains(keyword.toLowerCase())){
+                searchResults.add(dorm);
             }
         }
         return searchResults;

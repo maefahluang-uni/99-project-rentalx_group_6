@@ -166,5 +166,10 @@ public class DormController {
         model.addAttribute("dorm",dormService.findById(dormId));
         return "payment-page";
     }
+
+    @GetMapping("/searchPage")
+    public String searchPage(Model model){
+        return "search-page";
+    }
     
 }
