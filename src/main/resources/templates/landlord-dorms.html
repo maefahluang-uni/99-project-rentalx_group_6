@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" href="/css/logo.PNG" type="image/PNG">
   <link rel="stylesheet" th:href="@{../css/list.css}">
 </head>
 <body>
@@ -81,13 +82,13 @@
 
           <div class="title">
             <h3 th:text="${dorm.dormName}"></h3>
-            <div class="bb">
+            <!-- <div class="bb">
               <a th:href="@{/add-wishList/{dorm_id}(dorm_id=${dorm.dormId})}">
                 <button class="heart"> <i class="fa-regular fa-heart full_red"></i></button>
               </a>
 
               <button class="share">   <i class="fa-solid fa-share"></i></button>
-            </div>
+            </div> -->
           </div>
 
           <hr>
@@ -107,14 +108,16 @@
           </div>
           
           <div class="btns">
+           
             <a th:href="@{/updateDorm/{dorm_id} (dorm_id=${dorm.dormId})}">
               <button class="product-button">Update</button>
             </a>
+          
+         
             <a th:href="@{deleteDorm/{dorm_id} (dorm_id=${dorm.dormId})}">
-              <button class="delete-button" ><i class="fa-solid fa-location-dot"></i> Delete</button>
+              <button class="delete-button" ><i class="fa-solid fa-xmark"></i> Delete</button>
             </a>
-
-
+        
           </div>
         </div>
       </a>

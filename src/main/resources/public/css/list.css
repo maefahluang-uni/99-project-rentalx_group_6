@@ -27,7 +27,7 @@ body {
     margin-left: 80px;
 }
 .logo3 span{
-    color: yellow;
+    color: rgb(255, 170, 0);
 }
 
 
@@ -328,7 +328,7 @@ input[type="text"] {
 .btns{
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .map-button{
     border-radius: 10px;
@@ -845,16 +845,20 @@ overflow : hidden;
 a{
 text-decoration: none;
 }
-delete-button{
+.delete-button{
+    font-size: 18px;
+    color: red;
     border-radius: 10px;
-    height: 28px;
-    width: 80px;
+    background-color: rgb(249, 245, 245);
+    height: 35px;
+    width: 90px;
     border:none;
     cursor: pointer;
 
 }
 .delete-button:hover{
     background-color: red;
+    color: white;
 }
 .delete-button:active{
     background-color: rgb(212, 107, 107);

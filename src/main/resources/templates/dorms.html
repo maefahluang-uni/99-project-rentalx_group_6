@@ -2,11 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" href="/css/logo.PNG" type="image/PNG">
   <link rel="stylesheet" th:href="@{../css/list.css}">
   <style>
    .share {
       cursor: pointer;
-      padding: 10px;
+      padding: 5px;
+      margin-left: 5px;
       background-color: #007bff;
       color: #fff;
       border: none;
@@ -20,10 +22,27 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #fff;
+      background-color: rgb(117, 202, 235);
+      border-radius: 20px;
       padding: 20px;
-      border: 1px solid #ddd;
+      font-size: 20px;
+      border: 1px solid blue;
       z-index: 1000;
+    }
+    #copyLinkButton, .altbtn {
+        background-color: blue; 
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    #shareLink {
+      width: 80%;
+      padding: 8px;
+      margin-bottom: 10px;
     }
     .heartbtn {
     color: red; /* Change this to your desired styling for the red heart */
@@ -36,7 +55,7 @@
   <a th:href="@{/dorms}" class="logo1">
   <div class="logo3">
     
-      <h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3>
+      <h3><i class="fa-solid fa-hotel"></i> Rental<span>X</span></h3>
   
   </div>
 </a>
@@ -109,7 +128,7 @@
             <h3 th:text="${dorm.dormName}"></h3>
             <div class="bb">
               <a th:href="@{/add-wishList/{dorm_id}(dorm_id=${dorm.dormId})}">
-                <button class="heart" onclick="heartfunction(${dorm.dormId})"> <i class="fa-solid fa-heart"></i></button>
+                <button class="heart" onclick="heartfunction(${dorm.dormId})"> <i class="fa-solid fa-heart full_red"></i></button>
             </a>
             
 
@@ -120,8 +139,8 @@
             <div id="alexBox">
               <p>Share this link:</p>
               <input type="text" th:value="'https://lab-cd-fpb3mzsaaq-uc.a.run.app/dorms'" id="shareLink" readonly>
-              <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
-              <button onclick="toggleAlexBox()">Close</button>
+              <button class="altbtn" id="copyLinkButton" onclick="copyLink()">Copy Link</button>
+              <button class="altbtn" onclick="toggleAlexBox()">Close</button>
             </div>
 
 
