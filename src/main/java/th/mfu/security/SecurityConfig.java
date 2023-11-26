@@ -30,7 +30,7 @@ public class SecurityConfig {
 
                 .authorizeRequests(request -> request.antMatchers("/admin-page","dorm","/create-dorm","landlord-dorms")
                         .hasAuthority("LANDLORD")
-                        .antMatchers("/wishlists","/add-wishList/**").hasAuthority("USER")
+                        .antMatchers("/wishlists","/add-wishList/**","/showPayment/**").hasAuthority("USER")
                         .antMatchers("/password-request/**","/registration", "/css/**","/reset-password/**","/contactus","/searchPage","/dorms-wt").permitAll()
                         .anyRequest().authenticated())
 

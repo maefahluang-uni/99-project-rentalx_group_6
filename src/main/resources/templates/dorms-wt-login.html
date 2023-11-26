@@ -96,7 +96,7 @@
       <a th:href="@{/dorm/{id} (id=${dorm.dormId})}">
         <div>
           <div class="image-gallery">
-            <img class="dorm-photo" th:src="@{images/{imageName}(imageName=${dorm.img1})}" alt="Dorm Image">
+            <img class="dorm-photo" th:src="@{/{imageName}(imageName=${dorm.img1})}" alt="Dorm Image">
 
           </div>
 

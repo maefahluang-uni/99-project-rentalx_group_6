@@ -23,11 +23,13 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOiYElieWi3Z9s0BBnHMlPIbLM2Yfs3iLnw&usqp=CAU" class="user" alt=""> 
 
         <div class="user-button">
-            <a href="userprofile.html"><button>Ethan</button></a>
+            <a th:href="@{/profile}"><button><span th:text="${user.userName}"></span></button></a>
         </div>
         <div class="menu">
             <ul>
-                <button class="btn6"> Contact Us</button>
+                <a th:href="@{/contactus}">
+                    <button class="btn6"> Contact Us</button>
+                </a>
             </ul>
         </div>
     </div>

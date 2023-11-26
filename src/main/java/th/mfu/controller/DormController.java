@@ -97,8 +97,11 @@ public class DormController {
     }
 
     @GetMapping("/show-map")
-    public String showMap(Model model){
+    public String showMap(Model model,@AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User user = userService.findByEmail(email);
         model.addAttribute("dorms",dormService.getAllDorms());
+        model.addAttribute("user", user);
         return "show-map";
     }
 
