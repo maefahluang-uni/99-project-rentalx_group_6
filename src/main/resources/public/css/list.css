@@ -716,6 +716,9 @@ width: 400px;
 color: black;
 background-color: white;
 border-radius: 10px;
+    border: none;
+    padding: 9px;
+    height: 10px;
 }
 
 .infobutt{
@@ -723,8 +726,8 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 width: 400px;
-margin-left: 270px;
-margin-top: 40px;
+margin-left: 350px;
+margin-top: 50px;
 }
 .pass{
 height: 35px;

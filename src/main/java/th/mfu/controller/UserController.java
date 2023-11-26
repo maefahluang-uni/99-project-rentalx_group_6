@@ -135,7 +135,10 @@ public class UserController {
 
 
     @GetMapping("/change-password")
-    public String changePassword(Model model){
+    public String changePassword(Model model,@AuthenticationPrincipal UserDetails userDetails){
+        String email = userDetails.getUsername();
+        User user = userService.findByEmail(email);
+        model.addAttribute("user", user);
         model.addAttribute("passwordDto",new PasswordDto());
         return "update-password";
     }

@@ -108,7 +108,7 @@
           <div class="title">
             <h3 th:text="${dorm.dormName}"></h3>
             <div class="bb">
-              <a th:href="@{/add-wishList/{dorm_id}(dorm_id=${dorm.dormId})}"
+              <a th:href="@{/add-wishList/{dorm_id}(dorm_id=${dorm.dormId})}">
                 <button class="heart" onclick="heartfunction(${dorm.dormId})"> <i class="fa-solid fa-heart"></i></button>
             </a>
             
@@ -119,7 +119,7 @@
             <!-- Alex box modal -->
             <div id="alexBox">
               <p>Share this link:</p>
-              <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${dorm.dormId}" id="shareLink" readonly>
+              <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${#strings.toString(dorm.dormId)}" id="shareLink" readonly>
               <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
               <button onclick="toggleAlexBox()">Close</button>
             </div>
