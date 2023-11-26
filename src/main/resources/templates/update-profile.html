@@ -40,7 +40,7 @@
 <div  class="userphoto">
     <div class="username">
         <img class="userimg" src="https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg" alt="">
-        <h1 th:text="${user.userName}"></h1>
+        <h1 th:text="${user.userName}" style="margin-right: 88px;"></h1>
     </div>
     <button class="properties">Explore properties</button>
 </div>
@@ -67,16 +67,16 @@
                 </div>
                 <div class="name">
                     <div> Email
-                        <input type="text" name="email" class="userinput">
+                        <input type="text" name="email" class="userinput" placeholder="Email*">
                     </div>
                 </div>
                 <div class="name">
-                    <div> PhNo
-                        <input type="text" name="phno" class="userinput" placeholder="Confirm password*">
+                    <div> Phone
+                        <input type="text" name="phno" class="userinput" placeholder="Phone Number*">
                     </div>
                 </div>
             </div>
-            <div class="infobutt">
+            <div class="infobutt1">
                 <a th:href="@{/change-password}">
                     <button class="pass" type="button">Change password</button>
                 </a>
@@ -92,7 +92,7 @@
     <div class="footer-content">
         <div class="footer-section about">
             <p>fb.com/renfolx.coth</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>+66 95 534 4442</p>
         </div>
         <div class="footer-section links">
 
