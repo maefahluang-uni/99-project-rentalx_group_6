@@ -138,7 +138,9 @@
           </div>
 
           <div class="btns">
-            <button class="product-button">Add to Cart</button>
+            <a th:href="@{/dorm/{id} (id=${dorm.dormId})}">
+            <button class="product-button">Check details</button>
+            </a>
             <a th:href="@{'https://www.google.com/maps?q='+ ${dorm.dormName}+' MFU'}"
             target="_blank">
               <button class="map-button" ><i class="fa-solid fa-location-dot"></i> Map</button>

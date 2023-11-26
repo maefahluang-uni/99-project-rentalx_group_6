@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" th:href="@{../css/list.css}">
         <link rel="stylesheet" th:href="@{../css/payment.css}">
@@ -19,9 +19,13 @@
         
 
         <nav class="navbar">
-                <div class="logo">
-                    <a th:href="@{/dorms}"class="logotag"><h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3></a> 
+            <a th:href="@{/dorms}" class="logo1">
+                <div class="logo3">
+                  
+                    <h3><i class="fa-solid fa-hotel"></i> Rental  <span>X</span></h3>
+                
                 </div>
+              </a>
                 <div class="menu-toggle">
                     <i class="fa-solid fa-bars"></i>
                 </div>
@@ -46,7 +50,7 @@
             </nav>
           
 
-            <div class="photo-container">
+            <!-- <div class="photo-container">
                 <div class="photo1">
                     <img class="photohalf" th:src="@{/{imageName}(imageName=${dorm.img1})}" alt="Product Image">
                 </div>
@@ -57,6 +61,20 @@
                     <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img4})}" alt="Product Image">
                     <div id="map" style="height: 200px; width: 330px;"></div>
                 </div>
+        </div>
+    </div> -->
+    <div class="photo-container">
+        <div class="photo1">
+            <img class="photohalf" th:src="@{/{imageName}(imageName=${dorm.img1})}" alt="Dorm Image">
+    
+        </div>
+        <div class="photo2">
+            <div class="ph2container">
+            <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img2})}" alt="Dorm Image">
+            <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img3})}" alt="Dorm Image">
+            <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img4})}" alt="Dorm Image">
+            <div id="map" style="height: 200px; width: 330px;"></div>
+            </div>
         </div>
     </div>
 
@@ -91,88 +109,34 @@
                 </div>
                     <p class="paydes">Deposit for this room is <strong>4500 bhat.</strong>For more
                     detailed information,contact Landlord via:</p>
-
-                    <div class="userinfo">
-                        <div class="infocard">
-                            <div class="user_infos">
-                        <div class="profileinfo">
-                                <div class="userinfo-text">
-                                        <div id="username">Linee</div>
-                                <div>:</div>
-                                <div class="email1">+66655293007</div>
-                                 </div>
-                                 <div class="userinfo-text">
-                                <div>Email</div>
-                                 <div>:</div>
-                                 <div class="email1"><span th:text="${user.email}"></span></div>
-                                </div>
-                                  <div class="userinfo-text">
-                                <div>PhNu</div>
-                                <div>:</div>
-                                <div class="email1"> +66655293007</div></div>
-                                </div>    
+                </div>
+                
+                
+                <div class="userinfo">
+                    <div class="infocard">
+                        <div class="user_infos">
+                    <div class="profileinfo">
+                            <div class="userinfo-text">
+                                    <div id="username">Linee</div>
+                            <div>:</div>
+                            <div class="email1">+66655293007</div>
+                             </div>
+                             <div class="userinfo-text">
+                            <div>Email</div>
+                             <div>:</div>
+                             <div class="email1"><span th:text="${user.email}"></span></div>
                             </div>
+                              <div class="userinfo-text">
+                            <div>PhNu</div>
+                            <div>:</div>
+                            <div class="email1"> +66655293007</div></div>
+                            </div>    
                         </div>
                     </div>
-
                 </div>
-                <div class="right">
-                    <!-- <div class="paymentcard">
-                            <strong>Summary & Payment</strong>
-                        
-                            <div class="pay">
-                            <div>Room(1month)</div>
-                            <div>:</div>
-                            <div><span th:text="${dorm.price}"></span> baht</div>
-                            </div>
-                            <div class="pay">
-                                <div>Deposit</div>
-                                <div>:</div>
-                                <div><span th:text="${dorm.price}"></span> baht</div>
-                                </div>
-                                <div class="pay">
-                                    <div>Total</div>
-                                    <div>:</div>
-                                    <div><span th:text="${dorm.price}"></span> baht</div>
-                                    </div>
-                                </div>
-                    
-                                <div class="line"></div>
-                            <div>
-                                <strong class="cre">Credit/Debit Card</strong>
-                                <input type="text">
-                            </div>
-                            <div>
-                                <strong class="nameoncard">Name on Card</strong>
-                                <input  class="noc" type="text" placeholder="Name  on Card">
-                            </div>
-                            <div>
-                                <strong class="nameoncard">Card Number</strong>
-                                <input  class="noc" type="text" placeholder="1234567890123456">
-                            </div>
-                            <div>
-                                <div class="cv">
-                                    <div >
-                                    <strong class="expiry">Expiry Date</strong>
-                                    <input  class="exp" type="text" placeholder="Name  on Card">
-                                </div>
-                                <div class="excv">
-                                    <strong class="expiry">CVC/CVV</strong>
-                                    <input  class="exp" type="text" placeholder="CVC">
-                                </div>
-                                </div>
-                            </div>
-                   
-                   <div class="pbtn">
-                    <a href=""><button class="pcedbtn">Proceed</button></a>
-                   </div>
-                   
-                   
-                        </div>
 
-                </div> -->
-        </div>
 
+            </div>
 
         <div class="footer">
                 <div class="footer-content">
@@ -215,6 +179,23 @@
                 }
             </script> -->
 
+<!-- <script> -->
+    // function initMap() {
+    //     var dormLocation = {lat: [[${dorm.latitude}]], lng: [[${dorm.longitude}]]};
+    //     var map = new google.maps.Map(document.getElementById('map'), {
+    //         zoom: 15,
+    //         center: dormLocation
+    //     });
+    //     var marker = new google.maps.Marker({
+    //         position: dormLocation,
+    //         map: map,
+    //         title: 'Dormitory Location'
+    //     });
+    // }
+    // // Call the initMap function when the page is loaded
+    // google.maps.event.addDomListener(window, 'load', initMap);
+    
+<!-- </script> -->
 <script>
     function initMap() {
         var dormLocation = {lat: [[${dorm.latitude}]], lng: [[${dorm.longitude}]]};
@@ -228,8 +209,6 @@
             title: 'Dormitory Location'
         });
     }
-    // Call the initMap function when the page is loaded
-    google.maps.event.addDomListener(window, 'load', initMap);
 </script>
 
 </body>
