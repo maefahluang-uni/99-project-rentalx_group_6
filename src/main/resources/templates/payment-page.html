@@ -49,20 +49,6 @@
             </div>
             </nav>
           
-
-            <!-- <div class="photo-container">
-                <div class="photo1">
-                    <img class="photohalf" th:src="@{/{imageName}(imageName=${dorm.img1})}" alt="Product Image">
-                </div>
-        <div class="photo2">
-                <div class="ph2container">
-                    <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img2})}" alt="Product Image">
-                    <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img3})}" alt="Product Image">
-                    <img class="photoquarter" th:src="@{/{imageName}(imageName=${dorm.img4})}" alt="Product Image">
-                    <div id="map" style="height: 200px; width: 330px;"></div>
-                </div>
-        </div>
-    </div> -->
     <div class="photo-container">
         <div class="photo1">
             <img class="photohalf" th:src="@{/{imageName}(imageName=${dorm.img1})}" alt="Dorm Image">
@@ -82,39 +68,22 @@
             <div class="clickbtn">
                         <a href="map.html" class="mapbtn"><button class="mapbtn"><i class="fa-solid fa-location-dot"></i> Map</button></a>
                         <div class="rateandbtn">
-                              <p class="rate">Rating  : </p>
-                          
-                              <div class="rating">
-                                <a href="" onclick="setRating(1)">★</a>
-                                <a href="" onclick="setRating(2)">★</a>
-                                <a href="" onclick="setRating(3)">★</a>
-                                <a href="" onclick="setRating(4)">★</a>
-                                <a href="" onclick="setRating(5)">★</a>
-                              </div>
-                            
                         <a href="" class="btnss"><button class="favbtn"><i class="fa-regular fa-heart"></i> Favourite</button></a>
                         <a href="" class="btnss"><button class="sharebtn"><i class="fa-solid fa-share"></i> Share</button></a>
-                </div>
+                    </div>
         </div>
 
 
         <div class="paymentinfo">
                 <div class="left">
                     <h1>Room Booking</h1>
-                    <p>Please enter your move-in date:</p>
-                   <div class="calinput">
-                    <button id="datepickerButton" onclick="showDatePicker()">Select a Date</button>
-                    <!-- <input type="date" class="dateinp"> <i id="calicon" class="fa-regular fa-calendar-days"></i> -->
-                    <input type="date"  id="datepicker" name="selectedDate" onchange="handleDateSelection(this.value)" required>
-                </div>
                     <p class="paydes">Deposit for this room is <strong>4500 bhat.</strong>For more
                     detailed information,contact Landlord via:</p>
-                </div>
+                </div>     
                 
-                
-                <div class="userinfo">
-                    <div class="infocard">
-                        <div class="user_infos">
+                <div class="userinfo1">
+                    <div class="infocard1">
+                        <div class="user_infos1">
                     <div class="profileinfo">
                             <div class="userinfo-text">
                                     <div id="username">Linee</div>
@@ -160,56 +129,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <!-- <script>
-                function showDatePicker() {
-                    var datepicker = document.getElementById("datepicker");
-                    datepicker.style.display = "block";
-                }
-            
-                function handleDateSelection(selectedDate) {
-                    // You can perform actions with the selected date here
-                    alert("Selected Date: " + selectedDate);
-            
-                    // Optionally, hide the date picker after selection
-                    var datepicker = document.getElementById("datepicker");
-                    datepicker.style.display = "none";
-                }
-            </script> -->
-
-<!-- <script> -->
-    // function initMap() {
-    //     var dormLocation = {lat: [[${dorm.latitude}]], lng: [[${dorm.longitude}]]};
-    //     var map = new google.maps.Map(document.getElementById('map'), {
-    //         zoom: 15,
-    //         center: dormLocation
-    //     });
-    //     var marker = new google.maps.Marker({
-    //         position: dormLocation,
-    //         map: map,
-    //         title: 'Dormitory Location'
-    //     });
-    // }
-    // // Call the initMap function when the page is loaded
-    // google.maps.event.addDomListener(window, 'load', initMap);
-    
-<!-- </script> -->
-<script>
-    function initMap() {
-        var dormLocation = {lat: [[${dorm.latitude}]], lng: [[${dorm.longitude}]]};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: dormLocation
-        });
-        var marker = new google.maps.Marker({
-            position: dormLocation,
-            map: map,
-            title: 'Dormitory Location'
-        });
-    }
-</script>
 
 </body>
 

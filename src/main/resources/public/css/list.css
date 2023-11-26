@@ -685,9 +685,23 @@ background-color: rgb(229, 235, 241);
 margin-bottom: 70px;
 border-radius: 10px;
 }
+.infocard1{
+    padding: auto;
+margin: auto;
+width: 535px;
+height: 225px;
+background-color: rgb(229, 235, 241);
+margin-bottom: 70px;
+border-radius: 10px;
+}
 .userinfo{
+  
 margin-left: 100px;
 
+}
+.userinfo1{
+    margin-top: 30px;
+    margin-left: 100px;
 }
 .name{
 

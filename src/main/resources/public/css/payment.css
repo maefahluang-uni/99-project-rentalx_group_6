@@ -26,7 +26,7 @@
   }
   .rateandbtn{
     align-items: center;
-    width: 700px;
+    width: 290px;
     display: flex;
     justify-content: space-between;
   }
@@ -63,7 +63,7 @@
     width: 80%;
     margin: auto;
     padding: auto;
-    height: 700px;
+    height: 220px;
     margin-bottom: 90px;
   }
   .left{
@@ -123,6 +123,13 @@
     align-items: center;
     width: 100%;
 
+}
+.user_infos1{
+  margin-left: 90px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 .userinfo-text{
     display: flex;
