@@ -1,5 +1,5 @@
 **GROUP 6 Student off-campus Housing Rental Locator (RentalX)**
-=============
+===============
 **Project Description:**
   RentalX is a web-based platform meticulously designed to simplify the housing search for MFU university students. By effectively connecting students with suitable off-campus rental properties, the platform addresses challenges such as unfamiliarity with the area, budget constraints, and a lack of reliable information sources. Notably, RentalX goes beyond enhancing the student housing experience with its comprehensive search system. It also offers a user-friendly experience for landlords, empowering them to independently create and showcase their dormitories on the platform, thereby enriching the diversity of housing options. This project serves as a bridge, closing the gap between students and landlords, and culminating in a seamless and mutually beneficial housing solution.
   
