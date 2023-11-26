@@ -4,26 +4,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" th:href="@{../css/list.css}">
   <style>
-   #shareLinkContainer {
-      display: none;
-      margin-top: 10px;
+   .share {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
     }
 
-
-  #copyLinkButton {
-  cursor: pointer;
-  background-color: #008CBA;
-  color: white;
-  border: none;
-  padding: 8px 12px; /* Adjust the padding */
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  border-radius: 4px;
-  margin-right: 10px; /* Add margin-right to move the button to the right */
-}
-
+    /* Style for the modal */
+    #alexBox {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      z-index: 1000;
+    }
     .heartbtn {
     color: red; /* Change this to your desired styling for the red heart */
 }
@@ -112,12 +113,24 @@
             </a>
             
 
-            <button class="share" onclick="toggleShareLink()">   <i class="fa-solid fa-share"></i></button>
+            <button class="share" onclick="toggleAlexBox()"><i class="fa-solid fa-share"></i></button>
+            
+
+            <!-- Alex box modal -->
+            <div id="alexBox">
+              <p>Share this link:</p>
+              <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${dorm.dormId}" id="shareLink" readonly>
+              <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
+              <button onclick="toggleAlexBox()">Close</button>
+            </div>
+
+
+            <!-- <button class="share" onclick="toggleShareLink()">   <i class="fa-solid fa-share"></i></button>
             <div id="shareLinkContainer">
               <p>Share this link:</p>
               <input type="text" th:value="'https://stunning-telegram-j6gpgvjpwqw35j45-8100.app.github.dev/dorm/' + ${dorm.dormId}" id="shareLink" readonly>
               <button id="copyLinkButton" onclick="copyLink()">Copy Link</button>
-            </div>
+            </div> -->
             </div>
           </div>
 
@@ -181,16 +194,30 @@
 </div>
 
 <script>
-  function toggleShareLink() {
-    var shareLinkContainer = document.getElementById("shareLinkContainer");
-    shareLinkContainer.style.display = (shareLinkContainer.style.display === "block") ? "none" : "block";
+  function toggleAlexBox() {
+    // Get the Alex box modal element
+    var alexBox = document.getElementById('alexBox');
+
+    // Toggle the display of the Alex box modal
+    alexBox.style.display = (alexBox.style.display === 'block') ? 'none' : 'block';
   }
 
   function copyLink() {
-    var shareLink = document.getElementById("shareLink");
-    shareLink.select();
+    // Get the share link input element
+    var shareLinkInput = document.getElementById('shareLink');
+
+    // Select the text in the input element
+    shareLinkInput.select();
+    shareLinkInput.setSelectionRange(0, 99999); /* For mobile devices */
+
+    // Copy the text to the clipboard
     document.execCommand("copy");
+
+    // Show an alert to notify the user
     alert("Link copied to clipboard!");
+
+    // Close the Alex box modal after copying
+    toggleAlexBox();
   }
 
 
